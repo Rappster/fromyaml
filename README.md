@@ -1,7 +1,7 @@
 fromyaml
 ======
 
-Useful functionality to identify, parse and process YAML markup in a flexible and extendable manner
+Useful functionality to identify, parse and process YAML markup in a flexible and extendable manner.
 
 ## Installation 
 

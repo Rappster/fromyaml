@@ -1,3 +1,35 @@
+# CHANGES IN fromyaml VERSION 0.3
+
+## NEW FEATURES
+
+## BUG FIXES
+
+## MAJOR CHANGES
+
+## MINOR CHANGES
+
+## MISC
+
+- successful git version bumped failed, no actual changes
+
+-----
+
+# CHANGES IN fromyaml VERSION 0.2
+
+## NEW FEATURES
+
+## BUG FIXES
+
+## MAJOR CHANGES
+
+## MINOR CHANGES
+
+## MISC
+
+- git version bumped failed, no actual changes
+
+-----
+
 # CHANGES IN VERSION 0.1
 
 ## NEW FEATURES
