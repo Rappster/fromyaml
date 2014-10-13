@@ -1,3 +1,8 @@
+# Version 0.3
+ - cleanup commit for gitflow
+
+----------
+
 # Version 0.2
  - Version bump to 0.1
 
