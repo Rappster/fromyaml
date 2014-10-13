@@ -1,3 +1,23 @@
+# CHANGES IN fromyaml VERSION 0.3.3
+
+## NEW FEATURES
+
+- added: `processYaml()`
+
+## BUG FIXES
+
+## MAJOR CHANGES
+
+## MINOR CHANGES
+
+- modified: `README.md`
+- modified: examples
+- added: unit test for `processYaml()`
+
+## MISC
+
+-----
+
 # CHANGES IN fromyaml VERSION 0.3.2
 
 ## NEW FEATURES
