@@ -20,6 +20,11 @@
 #' @param yaml \strong{Signature argument}.
 #'    Object containing parsed YAML markup as returned by 
 #'    \code{\link[yamlr]{parseYaml}}.
+#' @param where \code{\link{environment}}.
+#'    Environment in which to assign the function in the \code{src} field of 
+#'    class \code{\link[yamlr]{ReactiveReferenceYaml.S3}}. Only relevant 
+#'    in case the YAML has been provided via comments instead of an 
+#'    inline string as this involves some additional transformation steps.
 #' @template threedots
 #' @example inst/examples/buildExpressionFromYaml.r
 #' @seealso \code{
@@ -34,6 +39,7 @@ setGeneric(
   ),
   def = function(
     yaml,
+    where = parent.frame(),
     ...
   ) {
     standardGeneric("buildExpressionFromYaml")       
@@ -65,6 +71,7 @@ setMethod(
   ), 
   definition = function(
     yaml,
+    where,
     ...
   ) {
     

@@ -87,13 +87,13 @@ setMethod(
   ) {
     
   ## Get //  
-  yaml <- getYaml(from = from, ctx = ctx)
+  yaml <- getYaml(from = from, ctx = ctx, where = where)
     
   ## Parse //
   yaml <- parseYaml(yaml = yaml)
   
   ## Build //
-  yaml <- buildExpressionFromYaml(yaml = yaml)
+  yaml <- buildExpressionFromYaml(yaml = yaml, where = where)
   
   ## Update //
   yaml <- updateYamlSource(yaml = yaml)

@@ -66,13 +66,25 @@ setMethod(
     yaml,
     ...
   ) {
-        
-  in_body <- is.function(yaml$src)
-  index <- yaml$index
+  
+  ## Order matters!
   src <- yaml$src
+  in_body <- is.function(yaml$src)
+  if (in_body) {
+    body_scope <- length(body(src))
+    if (body_scope == 1 && body(src)[[1]] != "{") {
+      body(src) <- substitute({BODY}, list(BODY = body(src))) 
+      yaml$index <- yaml$index + 1
+      for (ii in seq(along = yaml$parsed)) {
+        yaml$parsed[[ii]]$index <- yaml$parsed[[ii]]$index + 1
+      }
+    }
+  }
+    
+  index <- yaml$index
   expr <- yaml$expr
   parsed <- yaml$parsed
-
+  
   for (ii in names(parsed)) {
     if (in_body) {
       body(src)[[parsed[[ii]]$index]] <- expr[[ii]]$get_assign
