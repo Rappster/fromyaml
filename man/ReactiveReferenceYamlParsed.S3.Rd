@@ -69,7 +69,7 @@ yaml <- getYaml(
     "reactive-ref: {id: x_1, where:.GlobalEnv, as: ref_1}"
     ref_1
   },
-  ctx = ReactiveReferenceYamlContext.S3()  
+  ctx = YamlContext.ReactiveReference.S3()  
 )  
   
 ## Informal use (intended mainly for rapid prototyping) //

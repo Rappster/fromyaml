@@ -18,7 +18,7 @@ Instance of class \code{ReactiveReferenceYaml.S3}.
 \description{
 Class representing YAML markup in the context of reactive references and
 its constructor function. The class for the reactive reference context is
-\code{\link[fromyaml]{ReactiveReferenceYamlContext.S3}}
+\code{\link[fromyaml]{YamlContext.ReactiveReference.S3}}
 }
 \section{Fields}{
 
@@ -108,7 +108,7 @@ Janko Thyson \email{janko.thyson@rappster.de}
 }
 \seealso{
 \code{
-  	\link[fromyaml]{ReactiveReferenceYamlContext.S3}
+  	\link[fromyaml]{YamlContext.ReactiveReference.S3}
 }
 }
 

@@ -31,7 +31,7 @@ yaml <- getYaml(
   "reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
   ref_1 * 2
   },
-  ctx = ReactiveReferenceYamlContext.S3()
+  ctx = YamlContext.ReactiveReference.S3()
 )
 
 ## Parse //

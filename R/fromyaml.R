@@ -22,7 +22,7 @@
 #' 			Current available contexts:
 #' 
 #' 			\itemize{
-#' 				\item{\code{\link[fromyaml]{ReactiveReferenceYamlContext.S3}}}
+#' 				\item{\code{\link[fromyaml]{YamlContext.ReactiveReference.S3}}}
 #' 			}
 #' 		}
 #' } 
@@ -37,7 +37,7 @@
 #' Current available methods:
 #' 
 #' \itemize{
-#' 		\item{\code{\link[fromyaml]{getYaml-function-ReactiveReferenceYamlContext.S3-method}}: } {
+#' 		\item{\code{\link[fromyaml]{getYaml-function-YamlContext.ReactiveReference.S3-method}}: } {
 #' 
 #' 			Returns instance of class \code{\link[fromyaml]{ReactiveReferenceYaml.S3}}.
 #' 		}
@@ -102,7 +102,7 @@
 #' (in order of their workflow usage):
 #' 
 #' \itemize{
-#'   	\item{\code{\link[fromyaml]{ReactiveReferenceYamlContext.S3}}}
+#'   	\item{\code{\link[fromyaml]{YamlContext.ReactiveReference.S3}}}
 #'     \item{\code{\link[fromyaml]{ReactiveReferenceYaml.S3}}}
 #'     \item{\code{\link[fromyaml]{ReactiveReferenceYamlParsed.S3}}}
 #'     \item{\code{\link[fromyaml]{ReactiveReferenceYamlProcessed.S3}}}

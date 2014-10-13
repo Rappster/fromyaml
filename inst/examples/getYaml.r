@@ -5,7 +5,7 @@ from <- function() {
 }
 yaml <- getYaml(
   from = from,
-  ctx = ReactiveReferenceYamlContext.S3()
+  ctx = YamlContext.ReactiveReference.S3()
 )
 yaml
 yaml$yaml

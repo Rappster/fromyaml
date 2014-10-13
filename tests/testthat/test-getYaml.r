@@ -6,7 +6,7 @@ test_that("getYaml", {
   }
   expect_is(res <- getYaml(
     from = from,
-    ctx = ReactiveReferenceYamlContext.S3()
+    ctx = YamlContext.ReactiveReference.S3()
     ), 
     "ReactiveReferenceYaml.S3"
   )

@@ -10,7 +10,7 @@
 #' @template threedots
 #' @example inst/examples/parseYaml.r
 #' @seealso \code{
-#'   	\link[fromyaml]{parseYaml-function-ReactiveReferenceYamlContext.S3-method}
+#'   	\link[fromyaml]{parseYaml-function-YamlContext.ReactiveReference.S3-method}
 #' }
 #' @template author
 #' @template references

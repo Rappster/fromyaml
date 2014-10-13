@@ -11,7 +11,7 @@
 #' @template threedots
 #' @example inst/examples/getYaml.r
 #' @seealso \code{
-#'   	\link[fromyaml]{getYaml-function-ReactiveReferenceYamlContext.S3-method}
+#'   	\link[fromyaml]{getYaml-function-YamlContext.ReactiveReference.S3-method}
 #' }
 #' @template author
 #' @template references
@@ -31,7 +31,7 @@ setGeneric(
 )
 
 #' @title
-#' Get YAML Markup (function-ReactiveReferenceYamlContext.S3)
+#' Get YAML Markup (function-YamlContext.ReactiveReference.S3)
 #'
 #' @description 
 #' See generic: \code{\link[fromyaml]{getYaml}}
@@ -45,13 +45,13 @@ setGeneric(
 #' }
 #' @template author
 #' @template references
-#' @aliases getYaml-function-ReactiveReferenceYamlContext.S3-method
+#' @aliases getYaml-function-YamlContext.ReactiveReference.S3-method
 #' @export
 setMethod(
   f = "getYaml", 
   signature = signature(
     from = "function",
-    ctx = "ReactiveReferenceYamlContext.S3"
+    ctx = "YamlContext.ReactiveReference.S3"
   ), 
   definition = function(
     from,

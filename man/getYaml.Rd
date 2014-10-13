@@ -25,7 +25,7 @@ from <- function() {
 }
 yaml <- getYaml(
   from = from,
-  ctx = ReactiveReferenceYamlContext.S3()
+  ctx = YamlContext.ReactiveReference.S3()
 )
 yaml
 yaml$yaml
@@ -42,7 +42,7 @@ Janko Thyson \email{janko.thyson@rappster.de}
 }
 \seealso{
 \code{
-  	\link[fromyaml]{getYaml-function-ReactiveReferenceYamlContext.S3-method}
+  	\link[fromyaml]{getYaml-function-YamlContext.ReactiveReference.S3-method}
 }
 }
 
