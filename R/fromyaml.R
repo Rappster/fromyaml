@@ -1,0 +1,120 @@
+#' @title
+#' Processing of YAML markup
+#'
+#' @description
+#' Useful functionality to identify, parse and process YAML markup.
+#' 
+#' @details 
+#' The package aims at providing a general interface for processing YAML
+#' markup in a flexible and extendable manner based on the 
+#' \code{S4 \link[methods]{Methods}} mechanism.
+#' 
+#' To realize a generic approach, the basic workflow method
+#' \code{\link[fromyaml]{getYaml}} takes two arguments:
+#' 
+#' \enumerate{
+#' 		\item{\code{from}: } {
+#' 			An object containing YAML markup
+#' 		}
+#' 		\item{\code{ctx}: } {
+#' 			An object denoting the application context.
+#' 
+#' 			Current available contexts:
+#' 
+#' 			\itemize{
+#' 				\item{\code{\link[fromyaml]{ReactiveReferenceYamlContext.S3}}}
+#' 			}
+#' 		}
+#' } 
+#' 
+#' @section Identifying/retrieving YAML markup:
+#' 
+#' Function \code{\link[fromyaml]{getYaml}}:
+#' 
+#' Takes an object that contains YAML markup and then tries to identify and
+#' retrieve the actual markup. 
+#' 
+#' Current available methods:
+#' 
+#' \itemize{
+#' 		\item{\code{\link[fromyaml]{getYaml-function-ReactiveReferenceYamlContext.S3-method}}: } {
+#' 
+#' 			Returns instance of class \code{\link[fromyaml]{ReactiveReferenceYaml.S3}}.
+#' 		}
+#' } 
+#' 
+#' @section Parsing YAML markup:
+#' 
+#' Function \code{\link[fromyaml]{parseYaml}}:
+#' 
+#' Takes an object as returned by \code{\link[fromyaml]{getYaml}}
+#' and parses it. 
+#' 
+#' Current available methods:
+#' 
+#' \itemize{
+#' 		\item{\code{\link[fromyaml]{parseYaml-ReactiveReferenceYaml.S3-method}}: } {
+#' 
+#' 			Returns instance of class \code{\link[fromyaml]{ReactiveReferenceYamlParsed.S3}}.
+#' 		}
+#' }  
+#' 
+#' @section Building expressions from YAML markup:
+#' 
+#' Function \code{\link[fromyaml]{buildExpressionFromYaml}}:
+#' 
+#' Takes an object as returned by \code{\link[fromyaml]{parseYaml}}
+#' and builds suitable expressions based on the provided YAML markup. 
+#' 
+#' Current available methods:
+#' 
+#' \itemize{
+#' 		\item{\code{\link[fromyaml]{buildExpressionFromYaml-ReactiveReferenceYamlParsed.S3-method}}: } {
+#' 
+#' 			Returns instance of class \code{\link[fromyaml]{ReactiveReferenceYamlProcessed.S3}}.
+#' 		}
+#' }  
+#' 
+#' @section Update original object that contained YAML markup:
+#' 
+#' Function \code{\link[fromyaml]{updateYamlSource}}:
+#' 
+#' Takes an object as returned by \code{\link[fromyaml]{buildExpressionFromYaml}}
+#' and updates the underlying source object in order to substitute the 
+#' YAML markup by suitable expressions to make the object fully self-contained. 
+#' 
+#' Current available methods:
+#' 
+#' \itemize{
+#' 		\item{\code{\link[fromyaml]{updateYamlSource-ReactiveReferenceYamlProcessed.S3-method}}: } {
+#' 
+#' 			Returns instance of class \code{\link[fromyaml]{ReactiveReferenceYamlProcessed.S3}}.
+#' 			
+#' 			The object in field \code{src} can be used/evaluated as all YAML markup
+#' 			\strong{as expected by the application context (see details)}
+#' 			has been substituted by actual expressions.
+#' 		}
+#' }  
+#' 
+#' @section Classes and constructors:
+#' 
+#' The package defines the following S3 classes 
+#' (in order of their workflow usage):
+#' 
+#' \itemize{
+#'   	\item{\code{\link[fromyaml]{ReactiveReferenceYamlContext.S3}}}
+#'     \item{\code{\link[fromyaml]{ReactiveReferenceYaml.S3}}}
+#'     \item{\code{\link[fromyaml]{ReactiveReferenceYamlParsed.S3}}}
+#'     \item{\code{\link[fromyaml]{ReactiveReferenceYamlProcessed.S3}}}
+#' }  
+#' 
+#' \strong{NOTE}
+#' 
+#' S3 classes are generally used for speeding up rapid prototyping. It is possible
+#' that these classes are transformed to actual \code{S4} classes at some point
+#' 
+#' @template author
+#' @template references
+#' @docType package
+#' @name fromyaml
+NULL
