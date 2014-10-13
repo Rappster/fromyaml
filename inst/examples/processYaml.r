@@ -1,22 +1,13 @@
 \dontrun{
 
 ## Get //  
-yaml <- getYaml(
+yaml <- processYaml(
   from = function() {
-  "reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
-  ref_1 * 2
+    "reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
+    ref_1 * 2
   },
   ctx = YamlContext.ReactiveReference.S3()
 )
-
-## Parse //
-yaml <- parseYaml(yaml = yaml)
-
-## Build //
-yaml <- buildExpressionFromYaml(yaml = yaml)
-
-## Update //
-yaml <- updateYamlSource(yaml = yaml)
 
 ## Inspect //
 yaml$src

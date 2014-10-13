@@ -25,6 +25,44 @@ To realize a generic approach, the basic workflow method `getYaml()` takes two a
  
   - `YamlContext.ReactiveReference.S3`
  
+## Processing YAML markup
+
+Function `processYaml` is a convenience wrapper around all functions that are involved in processing YAML markup (see functions below).
+
+The goal of processing an object containing YAML markup is to identify and parse the markup in order to update the underlying source object in a way, that YAML markup is substituted with actual expressions so that the object becomes "self-contained" in the sense that it holds all necessary information in order to do its job.
+
+Currently, the underlying objects containing YAML markup are functions and the processing result is a function where the markup is substituted with expressions that retrieve referenced objects
+
+### Example 
+
+```
+yaml <- processYaml(
+  from = function() {
+    "reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
+    ref_1 * 2
+  },
+  ctx = YamlContext.ReactiveReference.S3()
+)
+yaml$src
+
+# function () 
+# {
+#     ref_1 <- get(x = "x_1", envir = <environment>, inherits = FALSE)
+#     ref_1 * 2
+# }
+```
+The source object can now be executed
+
+```
+x_1 <- 10
+eval(yaml$src())
+
+# [1] 20
+## --> 'x_1' from '.GlobalEnv' used as 'ref_1' times 2
+```
+
+-----
+
 ## Identifying/retrieving YAML markup
  
 Function `getYaml`:

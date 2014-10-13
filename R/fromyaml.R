@@ -27,6 +27,32 @@
 #' 		}
 #' } 
 #' 
+#' @section Processing YAML markup:
+#' 
+#' Function \code{\link[fromyaml]{processYaml}}:
+#' 
+#' This is the main top-level function for using this package. It is 
+#' wrapper around the sequential execution of 
+#' 
+#' \itemize{
+#'   	\item{\code{\link[fromyaml]{getYaml}}}
+#'     \item{\code{\link[fromyaml]{parseYaml}}}
+#'     \item{\code{\link[fromyaml]{buildExpressionFromYaml}}}
+#'     \item{\code{\link[fromyaml]{updateYamlSource}}}
+#' } 
+#' 
+#' Takes an object that contains YAML markup and then processes it eventually
+#' resulting in updating the underlying object so that it can be used/executed. 
+#' 
+#' Current available methods:
+#' 
+#' \itemize{
+#'   	\item{\code{\link[fromyaml]{processYaml-function-YamlContext.ReactiveReference.S3-method}}: } {
+#' 
+#' 			Returns instance of class \code{\link[fromyaml]{ReactiveReferenceYamlProcessed.S3}}.
+#' 		}
+#' } 
+#' 
 #' @section Identifying/retrieving YAML markup:
 #' 
 #' Function \code{\link[fromyaml]{getYaml}}:
