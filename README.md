@@ -1,16 +1,5 @@
-```{r}
-require("yamlr")
-```
-
-
----
-title: yamlr
-author: "Janko Thyson"
-date: "Saturday, October 11, 2014"
-output:
-  html_document:
-    self_contained: no
----
+yamlr
+=====
 
 Useful functionality to identify, parse and process YAML markup in a flexible and extendable manner.
 
@@ -46,7 +35,7 @@ Currently, the underlying objects containing YAML markup are functions and the p
 
 ### Example 
 
-```{r}
+```
 yaml <- processYaml(
   from = function() {
     "reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
@@ -59,7 +48,7 @@ yaml$src
 ```
 The source object can now be executed
 
-```{r}
+```
 x_1 <- 10
 eval(yaml$src())
 ```
@@ -82,7 +71,7 @@ Current available methods:
 
 YAML markdown as inline string
 
-```{r}
+```
 ## With curly brackets //  
 yaml <- getYaml(
   from = function() {
@@ -110,7 +99,7 @@ yaml$src
 
 YAML markdown as comment
 
-```{r}
+```
 ## With curly brackets //  
 yaml <- getYaml(
   from = function() {
@@ -149,7 +138,7 @@ Current available methods:
  
 ### Example 
 
-```{r}
+```
 ## Get //
 yaml <- getYaml(
   from = function() {
@@ -184,7 +173,7 @@ Current available methods:
  	
 ### Example 
 
-```{r}
+```
 ## Get //
 yaml <- getYaml(
   from = function() {
@@ -251,7 +240,7 @@ Current available methods:
  	
 ### Example 
 
-```{r}
+```
 ## Get //  
 yaml <- getYaml(
   from = function() {
