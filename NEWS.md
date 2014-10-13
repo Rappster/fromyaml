@@ -1,4 +1,4 @@
-# CHANGES IN yamlr VERSION 0.4
+# CHANGES IN yamlr VERSION 0.4.1
 
 ## NEW FEATURES
 
@@ -7,6 +7,32 @@
 ## MAJOR CHANGES
 
 ## MINOR CHANGES
+
+- renamed: `README.Rmd` --> `README.md`
+
+## MISC
+
+-----
+
+# CHANGES IN yamlr VERSION 0.4
+
+## NEW FEATURES
+
+## BUG FIXES
+
+## MAJOR CHANGES
+
+- renamed entire package: `fromyaml` --> `yamlr`
+- changed internal structure of classes:
+  - `ReactiveReferenceYaml.S3`
+  - `ReactiveReferenceYamlParsed.S3`
+  - `ReactiveReferenceYamlProcessed.S3`
+- changed: `expr` inside `buildExpressionFromYaml`
+
+## MINOR CHANGES
+
+- renamed: `README.md` --> `README.Rmd`
+- changed: examples and some unit tests
 
 ## MISC
 
