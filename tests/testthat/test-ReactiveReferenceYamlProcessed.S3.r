@@ -18,8 +18,8 @@ test_that("ReactiveReferenceYamlProcessed.S3", {
   expr$x_1 <- new.env()
   expr$x_1$get_assign <- quote(ref_1 <- get("x_1", .GlobalEnv, inherits = FALSE))
   expect_is(res <- ReactiveReferenceYamlProcessed.S3(
-      yaml = yaml$yaml,
-      yaml_parsed = yaml$yaml_parsed,
+      original = yaml$original,
+      parsed = yaml$parsed,
       index = yaml$index,
       src = yaml$src,
       expr = expr

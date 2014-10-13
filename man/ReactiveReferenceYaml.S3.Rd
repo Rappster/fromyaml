@@ -3,7 +3,7 @@
 \alias{ReactiveReferenceYaml.S3}
 \title{Class: ReactiveReferenceYaml.S3}
 \usage{
-ReactiveReferenceYaml.S3(.x, yaml = character(), index = numeric(),
+ReactiveReferenceYaml.S3(.x, original = character(), index = numeric(),
   src = NULL)
 }
 \arguments{
@@ -18,14 +18,14 @@ Instance of class \code{ReactiveReferenceYaml.S3}.
 \description{
 Class representing YAML markup in the context of reactive references and
 its constructor function. The class for the reactive reference context is
-\code{\link[fromyaml]{YamlContext.ReactiveReference.S3}}
+\code{\link[yamlr]{YamlContext.ReactiveReference.S3}}
 }
 \section{Fields}{
 
 \describe{
-\item{\code{yaml}}{\code{\link{character}}.
+\item{\code{original}}{\code{\link{character}}.
 YAML markup as identified by
-\code{\link[fromyaml]{getYaml}}
+\code{\link[yamlr]{getYaml}}
 Initial: \code{character()}.}
 
 \item{\code{index}}{\code{\link{numeric}}.
@@ -37,7 +37,7 @@ Initial: \code{numeric()}.}
 Object in which YAML markup was identified. Typcially, this corresponds
 to a function or expression, but it can generally be any R object that
 can contain YAML markup and for which methods for
-\code{\link[fromyaml]{getYaml}} are defined.
+\code{\link[yamlr]{getYaml}} are defined.
 Initial: \code{NULL}.}
 }}
 \section{Intended use of this class}{
@@ -62,7 +62,7 @@ once the package or application has reached a certain state of maturity.
 ## Takes *any* object and simply changes the class attributes
 ReactiveReferenceYaml.S3(
   list(
-    yaml = "reactive-ref: {id: x_1, where:.GlobalEnv, as: ref_1}",
+    original = "reactive-ref: {id: x_1, where:.GlobalEnv, as: ref_1}",
     index = 1,
     src = function() {
       "reactive-ref: {id: x_1, where:.GlobalEnv, as: ref_1}"
@@ -76,21 +76,21 @@ ReactiveReferenceYaml.S3(TRUE)
 res <- ReactiveReferenceYaml.S3()
 ls(res)
 res <- ReactiveReferenceYaml.S3(
-  yaml = "reactive-ref: {id: x_1, where:.GlobalEnv, as: ref_1}",
+  original = "reactive-ref: {id: x_1, where:.GlobalEnv, as: ref_1}",
   index = 1,
   src = function() {
     "reactive-ref: {id: x_1, where:.GlobalEnv, as: ref_1}"
     ref_1
   }
 )
-res$yaml
+res$original
 res$index
 res$src
 
 ## Recommended: include namespace //
 ## Regardless if you plan on using this class in an informal or formal way
-fromyaml::ReactiveReferenceYaml.S3(
-  yaml = "reactive-ref: {id: x_1, where:.GlobalEnv, as: ref_1}",
+yamlr::ReactiveReferenceYaml.S3(
+  original = "reactive-ref: {id: x_1, where:.GlobalEnv, as: ref_1}",
   index = 1,
   src = function() {
     "reactive-ref: {id: x_1, where:.GlobalEnv, as: ref_1}"
@@ -104,11 +104,11 @@ fromyaml::ReactiveReferenceYaml.S3(
 Janko Thyson \email{janko.thyson@rappster.de}
 }
 \references{
-\url{http://github.com/Rappster/fromyaml}
+\url{http://github.com/Rappster/yamlr}
 }
 \seealso{
 \code{
-  	\link[fromyaml]{YamlContext.ReactiveReference.S3}
+  	\link[yamlr]{YamlContext.ReactiveReference.S3}
 }
 }
 

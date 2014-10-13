@@ -2,15 +2,15 @@
 #' Parse YAML Markup (generic)
 #'
 #' @description 
-#' Parses YAML markup as identified by \code{\link[fromyaml]{getYaml}}.
+#' Parses YAML markup as identified by \code{\link[yamlr]{getYaml}}.
 #'   	
 #' @param yaml \strong{Signature argument}.
 #'    Object containing identified YAML markup as returned by 
-#'    \code{\link[fromyaml]{getYaml}}.
+#'    \code{\link[yamlr]{getYaml}}.
 #' @template threedots
 #' @example inst/examples/parseYaml.r
 #' @seealso \code{
-#'   	\link[fromyaml]{parseYaml-function-YamlContext.ReactiveReference.S3-method}
+#'   	\link[yamlr]{parseYaml-function-YamlContext.ReactiveReference.S3-method}
 #' }
 #' @template author
 #' @template references
@@ -56,9 +56,9 @@ setMethod(
     ...
   ) {
         
-  nms <- vector("character", length(yaml$yaml))
-  parsed <- lapply(seq(along=yaml$yaml), function(ii) {
-    parsed <- yaml::yaml.load(yaml$yaml[ii])[[1]]
+  nms <- vector("character", length(yaml$original))
+  parsed <- lapply(seq(along=yaml$original), function(ii) {
+    parsed <- yaml::yaml.load(yaml$original[ii])[[1]]
     if (is.null(parsed$where)) {
       parsed$where <- as.name("where")
     } else {
@@ -71,12 +71,13 @@ setMethod(
     }
     nms[[ii]] <<- parsed$id
     parsed$index <- yaml$index[ii]
+    parsed$expr <- new.env(parent = emptyenv())
     parsed
   })
   names(parsed) <- nms
-  out <- fromyaml::ReactiveReferenceYamlParsed.S3(
-    yaml = yaml$yaml,
-    yaml_parsed = parsed,
+  out <- yamlr::ReactiveReferenceYamlParsed.S3(
+    original = yaml$original,
+    parsed = parsed,
     index = yaml$index,
     src = yaml$src
   )

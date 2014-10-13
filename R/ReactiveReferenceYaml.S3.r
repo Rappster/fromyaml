@@ -4,7 +4,7 @@
 #' @description
 #' Class representing YAML markup in the context of reactive references and 
 #' its constructor function. The class for the reactive reference context is
-#' \code{\link[fromyaml]{YamlContext.ReactiveReference.S3}}
+#' \code{\link[yamlr]{YamlContext.ReactiveReference.S3}}
 #' 
 #' @template intended-use
 #'
@@ -13,9 +13,9 @@
 #'    \code{ReactiveReferenceYaml.S3}. Mainly intended for rapid prototyping 
 #'    purposes
 #'    
-#' @field yaml \code{\link{character}}.
+#' @field original \code{\link{character}}.
 #'    YAML markup as identified by 
-#'    \code{\link[fromyaml]{getYaml}}
+#'    \code{\link[yamlr]{getYaml}}
 #'    Initial: \code{character()}.
 #' @field index \code{\link{numeric}}.
 #'    Index denoting the lines/expressions that where YAML was identified. 
@@ -25,19 +25,19 @@
 #'    Object in which YAML markup was identified. Typcially, this corresponds
 #'    to a function or expression, but it can generally be any R object that
 #'    can contain YAML markup and for which methods for 
-#'    \code{\link[fromyaml]{getYaml}} are defined.
+#'    \code{\link[yamlr]{getYaml}} are defined.
 #'    Initial: \code{NULL}.
 #' @return Instance of class \code{ReactiveReferenceYaml.S3}.
 #' @example inst/examples/ReactiveReferenceYaml.S3.r
 #' @seealso \code{
-#'   	\link[fromyaml]{YamlContext.ReactiveReference.S3}
+#'   	\link[yamlr]{YamlContext.ReactiveReference.S3}
 #' }
 #' @template author
 #' @template references
 #' @export
 ReactiveReferenceYaml.S3 <- function(
   .x,
-  yaml = character(),
+  original = character(),
   index = numeric(),
   src = NULL
 ) {
@@ -46,7 +46,7 @@ ReactiveReferenceYaml.S3 <- function(
     out <- .x
   } else {
     out <- new.env()
-    out$yaml <- yaml
+    out$original <- original
     out$index <- index
     out$src <- src
     class(out) <- c("ReactiveReferenceYaml.S3", class(out))

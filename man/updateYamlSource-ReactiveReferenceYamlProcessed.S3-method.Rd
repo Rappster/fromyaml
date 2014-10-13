@@ -65,14 +65,14 @@ rm(yaml)
 Janko Thyson \email{janko.thyson@rappster.de}
 }
 \references{
-\url{http://github.com/Rappster/fromyaml}
+\url{http://github.com/Rappster/yamlr}
 }
 \seealso{
 \code{
    \link[yamlyaml]{updateYamlSource},
-    \link[fromyaml]{getYaml},
-    \link[fromyaml]{parseYaml},
-    \link[fromyaml]{buildExpressionFromYaml}
+    \link[yamlr]{getYaml},
+    \link[yamlr]{parseYaml},
+    \link[yamlr]{buildExpressionFromYaml}
 }
 }
 

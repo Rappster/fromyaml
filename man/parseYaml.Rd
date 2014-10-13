@@ -8,12 +8,12 @@ parseYaml(yaml, ...)
 \arguments{
 \item{yaml}{\strong{Signature argument}.
 Object containing identified YAML markup as returned by
-\code{\link[fromyaml]{getYaml}}.}
+\code{\link[yamlr]{getYaml}}.}
 
 \item{...}{Further arguments to be passed to subsequent functions/methods.}
 }
 \description{
-Parses YAML markup as identified by \code{\link[fromyaml]{getYaml}}.
+Parses YAML markup as identified by \code{\link[yamlr]{getYaml}}.
 }
 \examples{
 \dontrun{
@@ -31,8 +31,8 @@ yaml <- parseYaml(yaml = yaml)
 
 ## Inspeact //
 yaml
-yaml$yaml
-yaml$yaml_parsed
+yaml$original
+yaml$parsed
 yaml$index
 yaml$src
 
@@ -42,11 +42,11 @@ yaml$src
 Janko Thyson \email{janko.thyson@rappster.de}
 }
 \references{
-\url{http://github.com/Rappster/fromyaml}
+\url{http://github.com/Rappster/yamlr}
 }
 \seealso{
 \code{
-  	\link[fromyaml]{parseYaml-function-YamlContext.ReactiveReference.S3-method}
+  	\link[yamlr]{parseYaml-function-YamlContext.ReactiveReference.S3-method}
 }
 }
 

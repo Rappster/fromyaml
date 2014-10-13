@@ -7,13 +7,13 @@
 #' 
 #' @details 
 #' Currently, this means that all processing steps associated with the context 
-#' \code{\link[fromyaml]{YamlContext.ReactiveReference.S3}} are executed:
+#' \code{\link[yamlr]{YamlContext.ReactiveReference.S3}} are executed:
 #' 
 #' \itemiz{
-#'    \item{\code{\link[fromyaml]{getYaml}}}
-#'    \item{\code{\link[fromyaml]{parseYaml}}}
-#'    \item{\code{\link[fromyaml]{buildExpressionFromYaml}}}
-#'    \item{\code{\link[fromyaml]{updateYamlSource}}}
+#'    \item{\code{\link[yamlr]{getYaml}}}
+#'    \item{\code{\link[yamlr]{parseYaml}}}
+#'    \item{\code{\link[yamlr]{buildExpressionFromYaml}}}
+#'    \item{\code{\link[yamlr]{updateYamlSource}}}
 #' }
 #'   	
 #' @param from \strong{Signature argument}.
@@ -22,17 +22,17 @@
 #'    Markup proecessing context.
 #' @param where \code{\link{environment}}.
 #'    Environment in which to assign the function in the \code{src} field of 
-#'    class \code{\link[fromyaml]{ReactiveReferenceYaml.S3}}. Only relevant 
+#'    class \code{\link[yamlr]{ReactiveReferenceYaml.S3}}. Only relevant 
 #'    in case the YAML has been provided via comments instead of an 
 #'    inline string as this involves some additional transformation steps.
 #' @template threedots
 #' @example inst/examples/processYaml.r
 #' @seealso \code{
-#'   	\link[fromyaml]{processYaml-function-YamlContext.ReactiveReference.S3-method},
-#'    \link[fromyaml]{getYaml},
-#'    \link[fromyaml]{parseYaml},
-#'    \link[fromyaml]{buildExpressionFromYaml},
-#'    \link[fromyaml]{updateYamlSource}
+#'   	\link[yamlr]{processYaml-function-YamlContext.ReactiveReference.S3-method},
+#'    \link[yamlr]{getYaml},
+#'    \link[yamlr]{parseYaml},
+#'    \link[yamlr]{buildExpressionFromYaml},
+#'    \link[yamlr]{updateYamlSource}
 #' }
 #' @template author
 #' @template references
@@ -56,18 +56,18 @@ setGeneric(
 #' Get YAML Markup (function-YamlContext.ReactiveReference.S3)
 #'
 #' @description 
-#' See generic: \code{\link[fromyaml]{processYaml}}
+#' See generic: \code{\link[yamlr]{processYaml}}
 #'      
 #' @inheritParams processYaml
 #' @param from \code{\link{missing}}.
 #' @return \code{\link{character}}. Identified YAML markup.
 #' @example inst/examples/processYaml.r
 #' @seealso \code{
-#'    \link[fromyaml]{processYaml},
-#'    \link[fromyaml]{getYaml},
-#'    \link[fromyaml]{parseYaml},
-#'    \link[fromyaml]{buildExpressionFromYaml},
-#'    \link[fromyaml]{updateYamlSource}
+#'    \link[yamlr]{processYaml},
+#'    \link[yamlr]{getYaml},
+#'    \link[yamlr]{parseYaml},
+#'    \link[yamlr]{buildExpressionFromYaml},
+#'    \link[yamlr]{updateYamlSource}
 #' }
 #' @template author
 #' @template references

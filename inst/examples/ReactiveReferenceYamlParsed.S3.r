@@ -13,8 +13,8 @@ yaml <- getYaml(
 ## Takes *any* object and simply changes the class attributes
 ReactiveReferenceYamlParsed.S3(
   list(
-    yaml = yaml$yaml,
-    yaml_parsed = list(
+    original = yaml$original,
+    parsed = list(
       id = "x_1", 
       where = as.name("where"), 
       as = as.name("ref_1"),
@@ -30,8 +30,8 @@ ReactiveReferenceYamlParsed.S3(TRUE)
 res <- ReactiveReferenceYamlParsed.S3()
 ls(res)
 res <- ReactiveReferenceYamlParsed.S3(
-  yaml = yaml$yaml,
-  yaml_parsed = list(
+  original = yaml$original,
+  parsed = list(
     id = "x_1", 
     where = as.name("where"), 
     as = as.name("ref_1"),
@@ -40,13 +40,13 @@ res <- ReactiveReferenceYamlParsed.S3(
   index = yaml$index,
   src = yaml$src
 )
-res$yaml
-res$yaml_parsed
+res$original
+res$parsed
 res$index
 res$src
 
 ## Recommended: include namespace //
 ## Regardless if you plan on using this class in an informal or formal way
-fromyaml::ReactiveReferenceYamlParsed.S3()
+yamlr::ReactiveReferenceYamlParsed.S3()
 
 }

@@ -1,4 +1,4 @@
-Package: fromyaml
+Package: yamlr
 Type: Package
 Title: Processes YAML markup
 Version: 0.3.3

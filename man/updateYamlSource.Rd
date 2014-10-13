@@ -8,15 +8,15 @@ updateYamlSource(yaml, ...)
 \arguments{
 \item{yaml}{\strong{Signature argument}.
 Object containing processed YAML markup as returned by
-\code{\link[fromyaml]{buildExpressionFromYaml}}.}
+\code{\link[yamlr]{buildExpressionFromYaml}}.}
 
 \item{...}{Further arguments to be passed to subsequent functions/methods.}
 }
 \description{
 Updates the object that originally contained YAML markup. To be more
 specific, the function updates field \code{src} or class
-\code{\link[fromyaml]{ReactiveReferenceYamlProcessed}} as returned by
-\code{\link[fromyaml]{buildExpressionFromYaml}}.
+\code{\link[yamlr]{ReactiveReferenceYamlProcessed}} as returned by
+\code{\link[yamlr]{buildExpressionFromYaml}}.
 }
 \examples{
 \dontrun{
@@ -61,14 +61,14 @@ rm(yaml)
 Janko Thyson \email{janko.thyson@rappster.de}
 }
 \references{
-\url{http://github.com/Rappster/fromyaml}
+\url{http://github.com/Rappster/yamlr}
 }
 \seealso{
 \code{
-  	\link[fromyaml]{updateYamlSource-ReactiveReferenceYamlProcessed.S3-method},
-    \link[fromyaml]{getYaml},
-    \link[fromyaml]{parseYaml},
-    \link[fromyaml]{buildExpressionFromYaml}
+  	\link[yamlr]{updateYamlSource-ReactiveReferenceYamlProcessed.S3-method},
+    \link[yamlr]{getYaml},
+    \link[yamlr]{parseYaml},
+    \link[yamlr]{buildExpressionFromYaml}
 }
 }
 

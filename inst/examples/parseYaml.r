@@ -13,8 +13,8 @@ yaml <- parseYaml(yaml = yaml)
 
 ## Inspeact //
 yaml
-yaml$yaml
-yaml$yaml_parsed
+yaml$original
+yaml$parsed
 yaml$index
 yaml$src
 

@@ -10,13 +10,13 @@
 #'    Markup proecessing context.
 #' @param where \code{\link{environment}}.
 #'    Environment in which to assign the function in the \code{src} field of 
-#'    class \code{\link[fromyaml]{ReactiveReferenceYaml.S3}}. Only relevant 
+#'    class \code{\link[yamlr]{ReactiveReferenceYaml.S3}}. Only relevant 
 #'    in case the YAML has been provided via comments instead of an 
 #'    inline string as this involves some additional transformation steps.
 #' @template threedots
 #' @example inst/examples/getYaml.r
 #' @seealso \code{
-#'   	\link[fromyaml]{getYaml-function-YamlContext.ReactiveReference.S3-method}
+#'   	\link[yamlr]{getYaml-function-YamlContext.ReactiveReference.S3-method}
 #' }
 #' @template author
 #' @template references
@@ -40,14 +40,14 @@ setGeneric(
 #' Get YAML Markup (function-YamlContext.ReactiveReference.S3)
 #'
 #' @description 
-#' See generic: \code{\link[fromyaml]{getYaml}}
+#' See generic: \code{\link[yamlr]{getYaml}}
 #'      
 #' @inheritParams getYaml
 #' @param from \code{\link{missing}}.
 #' @return \code{\link{character}}. Identified YAML markup.
 #' @example inst/examples/getYaml.r
 #' @seealso \code{
-#'    \link[fromyaml]{getYaml}
+#'    \link[yamlr]{getYaml}
 #' }
 #' @template author
 #' @template references
@@ -98,7 +98,7 @@ setMethod(
   }
   if (length(index)) {
     ReactiveReferenceYaml.S3(
-      yaml = unname(sapply(index, function(idx) from[[idx]])),
+      original = unname(sapply(index, function(idx) from[[idx]])),
       index = index,
       src = from_0
     )
