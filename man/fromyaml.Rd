@@ -25,7 +25,7 @@ To realize a generic approach, the basic workflow method
 			Current available contexts:
 
 			\itemize{
-				\item{\code{\link[fromyaml]{ReactiveReferenceYamlContext.S3}}}
+				\item{\code{\link[fromyaml]{YamlContext.ReactiveReference.S3}}}
 			}
 		}
 }
@@ -41,7 +41,7 @@ retrieve the actual markup.
 Current available methods:
 
 \itemize{
-		\item{\code{\link[fromyaml]{getYaml-function-ReactiveReferenceYamlContext.S3-method}}: } {
+		\item{\code{\link[fromyaml]{getYaml-function-YamlContext.ReactiveReference.S3-method}}: } {
 
 			Returns instance of class \code{\link[fromyaml]{ReactiveReferenceYaml.S3}}.
 		}
@@ -114,7 +114,7 @@ The package defines the following S3 classes
 (in order of their workflow usage):
 
 \itemize{
-  	\item{\code{\link[fromyaml]{ReactiveReferenceYamlContext.S3}}}
+  	\item{\code{\link[fromyaml]{YamlContext.ReactiveReference.S3}}}
     \item{\code{\link[fromyaml]{ReactiveReferenceYaml.S3}}}
     \item{\code{\link[fromyaml]{ReactiveReferenceYamlParsed.S3}}}
     \item{\code{\link[fromyaml]{ReactiveReferenceYamlProcessed.S3}}}

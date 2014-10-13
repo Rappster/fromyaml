@@ -8,10 +8,15 @@
 #'    Object containing YAML markup.
 #' @param ctx \strong{Signature argument}.
 #'    Markup proecessing context.
+#' @param where \code{\link{environment}}.
+#'    Environment in which to assign the function in the \code{src} field of 
+#'    class \code{\link[fromyaml]{ReactiveReferenceYaml.S3}}. Only relevant 
+#'    in case the YAML has been provided via comments instead of an 
+#'    inline string as this involves some additional transformation steps.
 #' @template threedots
 #' @example inst/examples/getYaml.r
 #' @seealso \code{
-#'   	\link[fromyaml]{getYaml-function-ReactiveReferenceYamlContext.S3-method}
+#'   	\link[fromyaml]{getYaml-function-YamlContext.ReactiveReference.S3-method}
 #' }
 #' @template author
 #' @template references
@@ -24,6 +29,7 @@ setGeneric(
   def = function(
     from,
     ctx = NULL,
+    where = parent.frame(),
     ...
   ) {
     standardGeneric("getYaml")       
@@ -31,7 +37,7 @@ setGeneric(
 )
 
 #' @title
-#' Get YAML Markup (function-ReactiveReferenceYamlContext.S3)
+#' Get YAML Markup (function-YamlContext.ReactiveReference.S3)
 #'
 #' @description 
 #' See generic: \code{\link[fromyaml]{getYaml}}
@@ -45,17 +51,18 @@ setGeneric(
 #' }
 #' @template author
 #' @template references
-#' @aliases getYaml-function-ReactiveReferenceYamlContext.S3-method
+#' @aliases getYaml-function-YamlContext.ReactiveReference.S3-method
 #' @export
 setMethod(
   f = "getYaml", 
   signature = signature(
     from = "function",
-    ctx = "ReactiveReferenceYamlContext.S3"
+    ctx = "YamlContext.ReactiveReference.S3"
   ), 
   definition = function(
     from,
     ctx,
+    where,
     ...
   ) {
     
@@ -91,7 +98,7 @@ setMethod(
   }
   if (length(index)) {
     ReactiveReferenceYaml.S3(
-      yaml = sapply(index, function(idx) from[[idx]]),
+      yaml = unname(sapply(index, function(idx) from[[idx]])),
       index = index,
       src = from_0
     )

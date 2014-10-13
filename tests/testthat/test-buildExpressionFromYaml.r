@@ -5,7 +5,7 @@ test_that("buildExpressionFromYaml", {
     from = function() {
     "reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
     },
-    ctx = ReactiveReferenceYamlContext.S3()
+    ctx = YamlContext.ReactiveReference.S3()
   )
   yaml <- parseYaml(yaml = yaml)
   expect_is(res <- buildExpressionFromYaml(yaml = yaml), 
