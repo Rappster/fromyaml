@@ -12,15 +12,15 @@ yaml <- getYaml(
 yaml <- parseYaml(yaml = yaml)
 
 ## Build //
-res <- buildExpressionFromYaml(yaml = yaml)
-res$expr$x_1
-res$expr$x_1$get_assign
+yaml <- buildExpressionFromYaml(yaml = yaml)
+yaml$expr$x_1
+yaml$expr$x_1$get_assign
 
 ## Example of expression execution //
 ## The line that contained the YAML markup in 'from' above will be substituted
 ## by this expression 
 x_1 <- 10
-eval(res$expr$x_1$get_assign)
+eval(yaml$expr$x_1$get_assign)
 ref_1
 
 }

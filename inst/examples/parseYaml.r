@@ -9,13 +9,13 @@ yaml <- getYaml(
 )
 
 ## Parse //
-res <- parseYaml(yaml = yaml)
+yaml <- parseYaml(yaml = yaml)
 
 ## Inspeact //
-res
-res$yaml
-res$yaml_parsed
-res$index
-res$src
+yaml
+yaml$yaml
+yaml$yaml_parsed
+yaml$index
+yaml$src
 
 }

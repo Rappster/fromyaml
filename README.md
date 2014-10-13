@@ -37,6 +37,22 @@ Current available methods:
  
   returns instance of class `ReactiveReferenceYaml.S3`
  	
+### Example
+
+```
+yaml <- getYaml(
+  from = function() {
+    "reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
+    ref_1 * 2
+  },
+  ctx = ReactiveReferenceYamlContext.S3()
+)
+yaml
+yaml$yaml
+yaml$index
+yaml$src
+```
+   
 ## Parsing YAML markup
  
 Function `parseYaml`:
@@ -48,6 +64,29 @@ Current available methods:
 - `parseYaml-ReactiveReferenceYaml.S3-method`:
  
   returns instance of class `ReactiveReferenceYamlParsed.S3`
+ 
+### Example 
+
+```
+## Get //
+yaml <- getYaml(
+  from = function() {
+  "reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
+  ref_1 * 2
+  },
+  ctx = ReactiveReferenceYamlContext.S3()
+)
+
+## Parse //
+yaml <- parseYaml(yaml = yaml)
+
+## Inspeact //
+yaml
+yaml$yaml
+yaml$yaml_parsed
+yaml$index
+yaml$src
+```
  
 ## Building expressions from YAML markup
  
@@ -61,6 +100,36 @@ Current available methods:
  
   returns instance of class `ReactiveReferenceYamlProcessed.S3`
  	
+### Example 
+
+```
+## Get //
+yaml <- getYaml(
+  from = function() {
+  "reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
+  ref_1 * 2
+  },
+  ctx = ReactiveReferenceYamlContext.S3()
+)
+
+## Parse //
+yaml <- parseYaml(yaml = yaml)
+
+## Build //
+yaml <- buildExpressionFromYaml(yaml = yaml)
+yaml
+yaml$expr$x_1
+ls(yaml$expr$x_1)
+
+## Example of expression execution //
+## The line that contained the YAML markup in 'from' above will be substituted
+## by this expression 
+x_1 <- 10
+yaml$expr$x_1$get_assign
+eval(yaml$expr$x_1$get_assign)
+ref_1
+```
+   
 ## Update original object that contained YAML markup
  
 Function `updateYamlSource`:
@@ -75,6 +144,44 @@ Current available methods:
  			
   The object in field `src` can be used/evaluated as all YAML markup **as expected by the application context (see details in `?fromyaml`)** has been substituted by actual expressions.
  	
+### Example 
+
+```
+## Get //  
+yaml <- getYaml(
+  from = function() {
+  "reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
+  ref_1 * 2
+  },
+  ctx = ReactiveReferenceYamlContext.S3()
+)
+
+## Parse //
+yaml <- parseYaml(yaml = yaml)
+
+## Build //
+yaml <- buildExpressionFromYaml(yaml = yaml)
+
+## Update //
+yaml <- updateYamlSource(yaml = yaml)
+
+## Inspect //
+yaml$src
+## --> note that the original YAML markup has been substituted by a 
+## suitable expression for this specific context (`yaml$src$x_1$get_assign`).
+## The processing is now complete and the source object can be used as is
+## as it is now "self contained" in the sense that it contains all information
+## that are needed in order for it to do its job.
+
+## Actual use of the source object //
+x_1 <- 10
+eval(yaml$src())
+
+## Clean up //
+rm(x_1)
+rm(yaml)
+```
+   
 ## Classes and constructors
  
 The package defines the following S3 classes (in order of their workflow usage):

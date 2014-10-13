@@ -1,3 +1,20 @@
+# CHANGES IN fromyaml VERSION 0.3.1
+
+## NEW FEATURES
+
+## BUG FIXES
+
+## MAJOR CHANGES
+
+## MINOR CHANGES
+
+- modified: `README.md`
+- modified: examples
+
+## MISC
+
+-----
+
 # CHANGES IN fromyaml VERSION 0.3
 
 ## NEW FEATURES
