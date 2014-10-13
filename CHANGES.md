@@ -1,3 +1,11 @@
+# Version 0.4.2
+ - fixes #1
+ - Merge branch 'master' into develop
+ - Merge branch 'release-0.4.1'
+ - build commit v0.4.1
+
+----------
+
 # Version 0.4.1
  - rollback of .Rmd change
  - Merge branch 'master' into develop
