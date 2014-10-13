@@ -1,3 +1,11 @@
+# Version 0.3.3
+ - processYaml()
+ - Merge branch 'master' into develop
+ - Merge branch 'release-0.3.2'
+ - build commit
+
+----------
+
 # Version 0.3.2
  - where in getYaml()
  - Renamed: ReactiveReference.S3 --> YamlContext.ReactiveReference.S3 modified: README.md modified: examples
