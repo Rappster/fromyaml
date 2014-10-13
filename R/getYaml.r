@@ -8,6 +8,11 @@
 #'    Object containing YAML markup.
 #' @param ctx \strong{Signature argument}.
 #'    Markup proecessing context.
+#' @param where \code{\link{environment}}.
+#'    Environment in which to assign the function in the \code{src} field of 
+#'    class \code{\link[fromyaml]{ReactiveReferenceYaml.S3}}. Only relevant 
+#'    in case the YAML has been provided via comments instead of an 
+#'    inline string as this involves some additional transformation steps.
 #' @template threedots
 #' @example inst/examples/getYaml.r
 #' @seealso \code{
