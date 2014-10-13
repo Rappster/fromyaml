@@ -24,6 +24,7 @@ setGeneric(
   def = function(
     from,
     ctx = NULL,
+    where = parent.frame(),
     ...
   ) {
     standardGeneric("getYaml")       
@@ -56,6 +57,7 @@ setMethod(
   definition = function(
     from,
     ctx,
+    where,
     ...
   ) {
     
@@ -91,7 +93,7 @@ setMethod(
   }
   if (length(index)) {
     ReactiveReferenceYaml.S3(
-      yaml = sapply(index, function(idx) from[[idx]]),
+      yaml = unname(sapply(index, function(idx) from[[idx]])),
       index = index,
       src = from_0
     )
