@@ -54,7 +54,6 @@ eval(yaml$src())
 ## Clean up //
 rm(x_1)
 rm(yaml)
-rm(yaml)
 
 }
 }
