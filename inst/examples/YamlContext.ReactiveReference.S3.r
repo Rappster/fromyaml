@@ -20,6 +20,6 @@ res$ctx
 
 ## Recommended: include namespace //
 ## Regardless if you plan on using this class in an informal or formal way
-fromyaml::YamlContext.ReactiveReference.S3()
+yamlr::YamlContext.ReactiveReference.S3()
 
 }

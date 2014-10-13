@@ -14,7 +14,7 @@ Markup proecessing context.}
 
 \item{where}{\code{\link{environment}}.
 Environment in which to assign the function in the \code{src} field of
-class \code{\link[fromyaml]{ReactiveReferenceYaml.S3}}. Only relevant
+class \code{\link[yamlr]{ReactiveReferenceYaml.S3}}. Only relevant
 in case the YAML has been provided via comments instead of an
 inline string as this involves some additional transformation steps.}
 
@@ -26,13 +26,13 @@ workflow associated to a given application context is executed.
 }
 \details{
 Currently, this means that all processing steps associated with the context
-\code{\link[fromyaml]{YamlContext.ReactiveReference.S3}} are executed:
+\code{\link[yamlr]{YamlContext.ReactiveReference.S3}} are executed:
 
 \itemiz{
-   \item{\code{\link[fromyaml]{getYaml}}}
-   \item{\code{\link[fromyaml]{parseYaml}}}
-   \item{\code{\link[fromyaml]{buildExpressionFromYaml}}}
-   \item{\code{\link[fromyaml]{updateYamlSource}}}
+   \item{\code{\link[yamlr]{getYaml}}}
+   \item{\code{\link[yamlr]{parseYaml}}}
+   \item{\code{\link[yamlr]{buildExpressionFromYaml}}}
+   \item{\code{\link[yamlr]{updateYamlSource}}}
 }
 }
 \examples{
@@ -69,15 +69,15 @@ rm(yaml)
 Janko Thyson \email{janko.thyson@rappster.de}
 }
 \references{
-\url{http://github.com/Rappster/fromyaml}
+\url{http://github.com/Rappster/yamlr}
 }
 \seealso{
 \code{
-  	\link[fromyaml]{processYaml-function-YamlContext.ReactiveReference.S3-method},
-   \link[fromyaml]{getYaml},
-   \link[fromyaml]{parseYaml},
-   \link[fromyaml]{buildExpressionFromYaml},
-   \link[fromyaml]{updateYamlSource}
+  	\link[yamlr]{processYaml-function-YamlContext.ReactiveReference.S3-method},
+   \link[yamlr]{getYaml},
+   \link[yamlr]{parseYaml},
+   \link[yamlr]{buildExpressionFromYaml},
+   \link[yamlr]{updateYamlSource}
 }
 }
 

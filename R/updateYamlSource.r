@@ -4,19 +4,19 @@
 #' @description 
 #' Updates the object that originally contained YAML markup. To be more 
 #' specific, the function updates field \code{src} or class 
-#' \code{\link[fromyaml]{ReactiveReferenceYamlProcessed}} as returned by 
-#' \code{\link[fromyaml]{buildExpressionFromYaml}}.
+#' \code{\link[yamlr]{ReactiveReferenceYamlProcessed}} as returned by 
+#' \code{\link[yamlr]{buildExpressionFromYaml}}.
 #'   	
 #' @param yaml \strong{Signature argument}.
 #'    Object containing processed YAML markup as returned by 
-#'    \code{\link[fromyaml]{buildExpressionFromYaml}}.
+#'    \code{\link[yamlr]{buildExpressionFromYaml}}.
 #' @template threedots
 #' @example inst/examples/updateYamlSource.r
 #' @seealso \code{
-#'   	\link[fromyaml]{updateYamlSource-ReactiveReferenceYamlProcessed.S3-method},
-#'     \link[fromyaml]{getYaml},
-#'     \link[fromyaml]{parseYaml},
-#'     \link[fromyaml]{buildExpressionFromYaml}
+#'   	\link[yamlr]{updateYamlSource-ReactiveReferenceYamlProcessed.S3-method},
+#'     \link[yamlr]{getYaml},
+#'     \link[yamlr]{parseYaml},
+#'     \link[yamlr]{buildExpressionFromYaml}
 #' }
 #' @template author
 #' @template references
@@ -49,9 +49,9 @@ setGeneric(
 #' @example inst/examples/updateYamlSource.r
 #' @seealso \code{
 #'    \link[yamlyaml]{updateYamlSource},
-#'     \link[fromyaml]{getYaml},
-#'     \link[fromyaml]{parseYaml},
-#'     \link[fromyaml]{buildExpressionFromYaml}
+#'     \link[yamlr]{getYaml},
+#'     \link[yamlr]{parseYaml},
+#'     \link[yamlr]{buildExpressionFromYaml}
 #' }
 #' @template author
 #' @template references
@@ -71,7 +71,7 @@ setMethod(
   index <- yaml$index
   src <- yaml$src
   expr <- yaml$expr
-  parsed <- yaml$yaml_parsed
+  parsed <- yaml$parsed
 
   for (ii in names(parsed)) {
     if (in_body) {

@@ -1,1 +1,1 @@
-#' @references \url{http://github.com/Rappster/fromyaml}
+#' @references \url{http://github.com/Rappster/yamlr}

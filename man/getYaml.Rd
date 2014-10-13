@@ -14,7 +14,7 @@ Markup proecessing context.}
 
 \item{where}{\code{\link{environment}}.
 Environment in which to assign the function in the \code{src} field of
-class \code{\link[fromyaml]{ReactiveReferenceYaml.S3}}. Only relevant
+class \code{\link[yamlr]{ReactiveReferenceYaml.S3}}. Only relevant
 in case the YAML has been provided via comments instead of an
 inline string as this involves some additional transformation steps.}
 
@@ -39,7 +39,7 @@ yaml <- getYaml(
   ctx = YamlContext.ReactiveReference.S3()
 )
 yaml
-yaml$yaml
+yaml$original
 yaml$index
 yaml$src
 
@@ -49,8 +49,8 @@ yaml <- getYaml(
     "reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}",
   ctx = YamlContext.ReactiveReference.S3()
 )
-yaml$yaml
-yaml$yaml
+yaml$original
+yaml$original
 yaml$index
 yaml$src
 
@@ -66,7 +66,7 @@ yaml <- getYaml(
   },
   ctx = YamlContext.ReactiveReference.S3()
 )
-yaml$yaml
+yaml$original
 yaml$index
 yaml$src
 
@@ -77,7 +77,7 @@ yaml <- getYaml(
     ref_1 * 2,
   ctx = YamlContext.ReactiveReference.S3()
 )
-yaml$yaml
+yaml$original
 yaml$index
 yaml$src
 
@@ -87,11 +87,11 @@ yaml$src
 Janko Thyson \email{janko.thyson@rappster.de}
 }
 \references{
-\url{http://github.com/Rappster/fromyaml}
+\url{http://github.com/Rappster/yamlr}
 }
 \seealso{
 \code{
-  	\link[fromyaml]{getYaml-function-YamlContext.ReactiveReference.S3-method}
+  	\link[yamlr]{getYaml-function-YamlContext.ReactiveReference.S3-method}
 }
 }
 

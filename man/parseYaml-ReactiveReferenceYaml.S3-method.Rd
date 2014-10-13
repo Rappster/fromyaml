@@ -35,8 +35,8 @@ yaml <- parseYaml(yaml = yaml)
 
 ## Inspeact //
 yaml
-yaml$yaml
-yaml$yaml_parsed
+yaml$original
+yaml$parsed
 yaml$index
 yaml$src
 
@@ -46,7 +46,7 @@ yaml$src
 Janko Thyson \email{janko.thyson@rappster.de}
 }
 \references{
-\url{http://github.com/Rappster/fromyaml}
+\url{http://github.com/Rappster/yamlr}
 }
 \seealso{
 \code{

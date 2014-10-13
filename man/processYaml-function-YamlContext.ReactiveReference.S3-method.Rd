@@ -16,7 +16,7 @@ Markup proecessing context.}
 
 \item{where}{\code{\link{environment}}.
 Environment in which to assign the function in the \code{src} field of
-class \code{\link[fromyaml]{ReactiveReferenceYaml.S3}}. Only relevant
+class \code{\link[yamlr]{ReactiveReferenceYaml.S3}}. Only relevant
 in case the YAML has been provided via comments instead of an
 inline string as this involves some additional transformation steps.}
 
@@ -26,7 +26,7 @@ inline string as this involves some additional transformation steps.}
 \code{\link{character}}. Identified YAML markup.
 }
 \description{
-See generic: \code{\link[fromyaml]{processYaml}}
+See generic: \code{\link[yamlr]{processYaml}}
 }
 \examples{
 \dontrun{
@@ -62,15 +62,15 @@ rm(yaml)
 Janko Thyson \email{janko.thyson@rappster.de}
 }
 \references{
-\url{http://github.com/Rappster/fromyaml}
+\url{http://github.com/Rappster/yamlr}
 }
 \seealso{
 \code{
-   \link[fromyaml]{processYaml},
-   \link[fromyaml]{getYaml},
-   \link[fromyaml]{parseYaml},
-   \link[fromyaml]{buildExpressionFromYaml},
-   \link[fromyaml]{updateYamlSource}
+   \link[yamlr]{processYaml},
+   \link[yamlr]{getYaml},
+   \link[yamlr]{parseYaml},
+   \link[yamlr]{buildExpressionFromYaml},
+   \link[yamlr]{updateYamlSource}
 }
 }
 

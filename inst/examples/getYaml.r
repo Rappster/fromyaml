@@ -13,7 +13,7 @@ yaml <- getYaml(
   ctx = YamlContext.ReactiveReference.S3()
 )
 yaml
-yaml$yaml
+yaml$original
 yaml$index
 yaml$src
 
@@ -23,8 +23,8 @@ yaml <- getYaml(
     "reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}",
   ctx = YamlContext.ReactiveReference.S3()
 )
-yaml$yaml
-yaml$yaml
+yaml$original
+yaml$original
 yaml$index
 yaml$src
 
@@ -40,7 +40,7 @@ yaml <- getYaml(
   },
   ctx = YamlContext.ReactiveReference.S3()
 )
-yaml$yaml
+yaml$original
 yaml$index
 yaml$src
 
@@ -51,7 +51,7 @@ yaml <- getYaml(
     ref_1 * 2,
   ctx = YamlContext.ReactiveReference.S3()
 )
-yaml$yaml
+yaml$original
 yaml$index
 yaml$src
 

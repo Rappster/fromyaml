@@ -3,9 +3,9 @@
 \alias{ReactiveReferenceYamlProcessed.S3}
 \title{Class: ReactiveReferenceYamlProcessed.S3}
 \usage{
-ReactiveReferenceYamlProcessed.S3(.x, yaml = character(),
-  yaml_parsed = list(id = character, where = NULL, as = NULL),
-  index = numeric(), src = NULL, expr = new.env(parent = emptyenv()))
+ReactiveReferenceYamlProcessed.S3(.x, original = character(),
+  parsed = list(id = character, where = NULL, as = NULL), index = numeric(),
+  src = NULL, expr = new.env(parent = emptyenv()))
 }
 \arguments{
 \item{.x}{\code{\link{ANY}}. An object of an arbitrary class whose class
@@ -18,20 +18,20 @@ Instance of class \code{ReactiveReferenceYamlProcessed.S3}.
 }
 \description{
 Class representing parsed YAML markup as returned by function
-\code{\link[fromyaml]{parseYaml}}
+\code{\link[yamlr]{parseYaml}}
 in the context of reactive references and its constructor function.
 }
 \section{Fields}{
 
 \describe{
-\item{\code{yaml}}{\code{\link{character}}.
+\item{\code{original}}{\code{\link{character}}.
 YAML markup as identified by
-\code{\link[fromyaml]{getYaml}}
+\code{\link[yamlr]{getYaml}}
 Initial: \code{character()}.}
 
-\item{\code{yaml_parsed}}{\code{\link{list}}.
+\item{\code{parsed}}{\code{\link{list}}.
 Parsed YAML markup as identified by
-\code{\link[fromyaml]{getYaml}} and parsed by \code{\link[fromyaml]{parseYaml}}.
+\code{\link[yamlr]{getYaml}} and parsed by \code{\link[yamlr]{parseYaml}}.
 Initial: \code{list(id = character, where = NULL, as = NULL)}.}
 
 \item{\code{index}}{\code{\link{numeric}}.
@@ -43,7 +43,7 @@ Initial: \code{numeric()}.}
 Object in which YAML markup was identified. Typcially, this corresponds
 to a function or expression, but it can generally be any R object that
 can contain YAML markup and for which methods for
-\code{\link[fromyaml]{getYaml}} are defined.
+\code{\link[yamlr]{getYaml}} are defined.
 Initial: \code{NULL}.}
 
 \item{\code{expr}}{\code{\link{environment}}.
@@ -88,8 +88,8 @@ expr$x_1 <- new.env()
 expr$x_1$get_assign <- quote(ref_1 <- get("x_1", .GlobalEnv, inherits = FALSE))
 ReactiveReferenceYamlProcessed.S3(
   list(
-    yaml = yaml$yaml,
-    yaml_parsed = yaml$yaml_parsed,
+    original = yaml$original,
+    parsed = yaml$parsed,
     index = yaml$index,
     src = yaml$src,
     expr = expr
@@ -101,21 +101,21 @@ ReactiveReferenceYamlProcessed.S3(TRUE)
 res <- ReactiveReferenceYamlProcessed.S3()
 ls(res)
 res <- ReactiveReferenceYamlProcessed.S3(
-  yaml = yaml$yaml,
-  yaml_parsed = yaml$yaml_parsed,
+  original = yaml$original,
+  parsed = yaml$parsed,
   index = yaml$index,
   src = yaml$src,
   expr = expr
 )
-res$yaml
-res$yaml_parsed
+res$original
+res$parsed
 res$index
 res$src
 res$expr$x_1$get_assign
 
 ## Recommended: include namespace //
 ## Regardless if you plan on using this class in an informal or formal way
-fromyaml::ReactiveReferenceYamlProcessed.S3()
+yamlr::ReactiveReferenceYamlProcessed.S3()
 
 }
 }
@@ -123,14 +123,14 @@ fromyaml::ReactiveReferenceYamlProcessed.S3()
 Janko Thyson \email{janko.thyson@rappster.de}
 }
 \references{
-\url{http://github.com/Rappster/fromyaml}
+\url{http://github.com/Rappster/yamlr}
 }
 \seealso{
 \code{
-  	\link[fromyaml]{ReactiveReferenceYaml.S3},
-    \link[fromyaml]{ReactiveReferenceYamlProcessed.S3},
-    \link[fromyaml]{getYaml},
-    \link[fromyaml]{parseYaml}
+  	\link[yamlr]{ReactiveReferenceYaml.S3},
+    \link[yamlr]{ReactiveReferenceYamlProcessed.S3},
+    \link[yamlr]{getYaml},
+    \link[yamlr]{parseYaml}
 }
 }
 

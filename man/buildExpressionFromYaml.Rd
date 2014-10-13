@@ -8,13 +8,25 @@ buildExpressionFromYaml(yaml, ...)
 \arguments{
 \item{yaml}{\strong{Signature argument}.
 Object containing parsed YAML markup as returned by
-\code{\link[fromyaml]{parseYaml}}.}
+\code{\link[yamlr]{parseYaml}}.}
 
 \item{...}{Further arguments to be passed to subsequent functions/methods.}
 }
 \description{
 Builds expression(s) based on the YAML markup as identified by
-\code{\link[fromyaml]{getYaml}} and parsed by \code{\link[fromyaml]{parseYaml}}.
+\code{\link[yamlr]{getYaml}} and parsed by \code{\link[yamlr]{parseYaml}}.
+}
+\details{
+Expressions that should be executed in order to validate certain aspects can
+be put into a parsed reference's \code{expr} environment at subenvironment
+\code{"validate"} (i.e. \code{{parse-yaml}${id}$expr$validate}).
+That way, at any given time, one could simply execute all expressions in
+that environment in order to validate if all prerequisites are met
+(for example "check if the specified reference actually exists and throw
+an error if it doesn't").
+
+See method \code{\link[yamlr]{buildExpressionFromYaml-ReactiveReferenceYamlParsed.S3-method}}
+for an example for this
 }
 \examples{
 \dontrun{
@@ -32,14 +44,39 @@ yaml <- parseYaml(yaml = yaml)
 
 ## Build //
 yaml <- buildExpressionFromYaml(yaml = yaml)
-yaml$expr$x_1
+
+## Two ways of accessing expressions //
+## 1) Via 'parsed':
+ls(yaml$parsed$x_1$expr)
+yaml$parsed$x_1$expr$exists
+yaml$parsed$x_1$expr$validate
+yaml$parsed$x_1$expr$get_assign
+
+## 2) Via 'expr':
+ls(yaml$expr$x_1)
+yaml$expr$x_1$exists
+yaml$expr$x_1$validate
 yaml$expr$x_1$get_assign
 
+## NOTE
+## The environment in `expr${id}` corresponds to the environment 
+## in `parsed${id}$expr. So expressions are not actually stored redundantly
+## as environments implement a "pass-by-referenc" instead of the otherwise
+## typical "pass-by-value" paradigm. 
+## Environment `expr` simply exists as a shorthand for accessing expressions
+
 ## Example of expression execution //
+## Validity checks:
+suppressWarnings(rm(x_1))
+eval(yaml$parsed$x_1$expr$exists)
+eval(yaml$parsed$x_1$expr$validate)
+x_1 <- 10
+eval(yaml$parsed$x_1$expr$exists)
+eval(yaml$parsed$x_1$expr$validate)
+
 ## The line that contained the YAML markup in 'from' above will be substituted
 ## by this expression 
-x_1 <- 10
-eval(yaml$expr$x_1$get_assign)
+eval(yaml$parsed$x_1$expr$get_assign)
 ref_1
 
 }
@@ -48,11 +85,11 @@ ref_1
 Janko Thyson \email{janko.thyson@rappster.de}
 }
 \references{
-\url{http://github.com/Rappster/fromyaml}
+\url{http://github.com/Rappster/yamlr}
 }
 \seealso{
 \code{
-  	\link[fromyaml]{buildExpressionFromYaml-ReactiveReferenceYamlParsed.S3-method}
+  	\link[yamlr]{buildExpressionFromYaml-ReactiveReferenceYamlParsed.S3-method}
 }
 }
 

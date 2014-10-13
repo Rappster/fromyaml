@@ -63,7 +63,7 @@ res$ctx
 
 ## Recommended: include namespace //
 ## Regardless if you plan on using this class in an informal or formal way
-fromyaml::YamlContext.ReactiveReference.S3()
+yamlr::YamlContext.ReactiveReference.S3()
 
 }
 }
@@ -71,6 +71,6 @@ fromyaml::YamlContext.ReactiveReference.S3()
 Janko Thyson \email{janko.thyson@rappster.de}
 }
 \references{
-\url{http://github.com/Rappster/fromyaml}
+\url{http://github.com/Rappster/yamlr}
 }
 

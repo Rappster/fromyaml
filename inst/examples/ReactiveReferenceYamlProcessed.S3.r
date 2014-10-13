@@ -17,8 +17,8 @@ expr$x_1 <- new.env()
 expr$x_1$get_assign <- quote(ref_1 <- get("x_1", .GlobalEnv, inherits = FALSE))
 ReactiveReferenceYamlProcessed.S3(
   list(
-    yaml = yaml$yaml,
-    yaml_parsed = yaml$yaml_parsed,
+    original = yaml$original,
+    parsed = yaml$parsed,
     index = yaml$index,
     src = yaml$src,
     expr = expr
@@ -30,20 +30,20 @@ ReactiveReferenceYamlProcessed.S3(TRUE)
 res <- ReactiveReferenceYamlProcessed.S3()
 ls(res)
 res <- ReactiveReferenceYamlProcessed.S3(
-  yaml = yaml$yaml,
-  yaml_parsed = yaml$yaml_parsed,
+  original = yaml$original,
+  parsed = yaml$parsed,
   index = yaml$index,
   src = yaml$src,
   expr = expr
 )
-res$yaml
-res$yaml_parsed
+res$original
+res$parsed
 res$index
 res$src
 res$expr$x_1$get_assign
 
 ## Recommended: include namespace //
 ## Regardless if you plan on using this class in an informal or formal way
-fromyaml::ReactiveReferenceYamlProcessed.S3()
+yamlr::ReactiveReferenceYamlProcessed.S3()
 
 }
