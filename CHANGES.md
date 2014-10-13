@@ -1,3 +1,11 @@
+# Version 0.4
+ - rename
+ - Merge branch 'master' into develop
+ - Merge branch 'release-0.3.3'
+ - build commit
+
+----------
+
 # Version 0.3.3
  - processYaml()
  - Merge branch 'master' into develop
