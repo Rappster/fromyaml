@@ -1,3 +1,10 @@
+# Version 0.3.1
+ - modified README.md modified examples
+ - Merge branch 'release-0.3'
+ - build commit
+
+----------
+
 # Version 0.3
  - cleanup commit for gitflow
 

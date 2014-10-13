@@ -41,10 +41,10 @@ yaml <- parseYaml(yaml = yaml)
 yaml <- buildExpressionFromYaml(yaml = yaml)
 
 ## Update //
-res <- updateYamlSource(yaml = yaml)
+yaml <- updateYamlSource(yaml = yaml)
 
 ## Inspect //
-res$src
+yaml$src
 ## --> note that the original YAML markup has been substituted by a 
 ## suitable expression for this specific context (`yaml$src$x_1$get_assign`).
 ## The processing is now complete and the source object can be used as is
@@ -53,12 +53,12 @@ res$src
 
 ## Actual use of the source object //
 x_1 <- 10
-eval(res$src())
+eval(yaml$src())
 
 ## Clean up //
 rm(x_1)
 rm(yaml)
-rm(res)
+rm(yaml)
 
 }
 }
