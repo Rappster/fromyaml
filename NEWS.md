@@ -1,3 +1,17 @@
+# CHANGES IN yamlr VERSION 0.4
+
+## NEW FEATURES
+
+## BUG FIXES
+
+## MAJOR CHANGES
+
+## MINOR CHANGES
+
+## MISC
+
+-----
+
 # CHANGES IN fromyaml VERSION 0.3.3
 
 ## NEW FEATURES
