@@ -1,3 +1,20 @@
+# CHANGES IN yamlr VERSION 0.4.2
+
+## NEW FEATURES
+
+## BUG FIXES
+
+- fixed: #1 
+  Ensurance of curly brackets when length of function body is 1
+
+## MAJOR CHANGES
+
+## MINOR CHANGES
+
+## MISC
+
+-----
+
 # CHANGES IN yamlr VERSION 0.4.1
 
 ## NEW FEATURES
