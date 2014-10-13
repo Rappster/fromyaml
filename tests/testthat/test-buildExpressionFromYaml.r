@@ -26,3 +26,4 @@ test_that("buildExpressionFromYaml", {
   expect_true(identical(res$expr$x_1, res$parsed$x_1$expr))
   
 })
+

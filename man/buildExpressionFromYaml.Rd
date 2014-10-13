@@ -3,12 +3,18 @@
 \alias{buildExpressionFromYaml}
 \title{Build Expression Based on YAML Markup (generic)}
 \usage{
-buildExpressionFromYaml(yaml, ...)
+buildExpressionFromYaml(yaml, where = parent.frame(), ...)
 }
 \arguments{
 \item{yaml}{\strong{Signature argument}.
 Object containing parsed YAML markup as returned by
 \code{\link[yamlr]{parseYaml}}.}
+
+\item{where}{\code{\link{environment}}.
+Environment in which to assign the function in the \code{src} field of
+class \code{\link[yamlr]{ReactiveReferenceYaml.S3}}. Only relevant
+in case the YAML has been provided via comments instead of an
+inline string as this involves some additional transformation steps.}
 
 \item{...}{Further arguments to be passed to subsequent functions/methods.}
 }

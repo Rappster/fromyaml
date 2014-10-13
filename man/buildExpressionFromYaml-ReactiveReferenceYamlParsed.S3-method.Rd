@@ -5,10 +5,17 @@
 \alias{buildExpressionFromYaml-ReactiveReferenceYamlParsed.S3-method}
 \title{Build Expression Based on YAML Markup (ReactiveReferenceYamlParsed.S3)}
 \usage{
-\S4method{buildExpressionFromYaml}{ReactiveReferenceYamlParsed.S3}(yaml, ...)
+\S4method{buildExpressionFromYaml}{ReactiveReferenceYamlParsed.S3}(yaml,
+  where = parent.frame(), ...)
 }
 \arguments{
 \item{yaml}{\code{\link{ReactiveReferenceYamlParsed.S3}}.}
+
+\item{where}{\code{\link{environment}}.
+Environment in which to assign the function in the \code{src} field of
+class \code{\link[yamlr]{ReactiveReferenceYaml.S3}}. Only relevant
+in case the YAML has been provided via comments instead of an
+inline string as this involves some additional transformation steps.}
 
 \item{...}{Further arguments to be passed to subsequent functions/methods.}
 }
