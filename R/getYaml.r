@@ -89,7 +89,14 @@ setMethod(
     if (length(index)) {
       ## Transform expression //
       code[index] <- paste0("\"", gsub("\\s*#\\s*", "", code[index]), "\"")
-      from_0 <- eval(parse(text = code)[[1]])
+      expr_char <- paste(c("quote({", paste(rep("expr", length(code[-1]))), "})"),
+                         collapse = "\n")
+      tmp <- function() expr
+      body(tmp) <- eval(parse(text = expr_char))
+      for(ii in seq(along = code[-1])) {
+        body(tmp)[[ii+1]] <- substitute(CODE, list(CODE = parse(text = code[-1][[ii]])[[1]]))
+      }
+      from_0 <- tmp
       environment(from_0) <- where
       from <- body(from_0)
       index <- which(sapply(from, function(from) {
