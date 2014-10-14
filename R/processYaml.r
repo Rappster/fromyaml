@@ -90,16 +90,16 @@ setMethod(
     
   ## Get //  
   yaml <- getYaml(from = from, ctx = ctx, where = where)
-  
+# print("DEBUG 1")  
   ## Parse //
   yaml <- parseYaml(yaml = yaml)
-  
+# print("DEBUG 2")    
   ## Build //
   yaml <- buildExpressionFromYaml(yaml = yaml, where = where)
-  
+# print("DEBUG 3")    
   ## Update //
   yaml <- updateYamlSource(yaml = yaml)
-  
+# print("DEBUG 4")    
   return(yaml)
   
   }

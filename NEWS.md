@@ -1,3 +1,27 @@
+# CHANGES IN yamlr VERSION 0.4.5
+
+## NEW FEATURES
+
+## BUG FIXES
+
+- fixed: #3
+  Empty lines when providing functions with YAML as comments no longer leads to an error in `getYaml()`/`getYamlFromComments()`
+
+## MAJOR CHANGES
+
+- refactored: `getYaml()` --> `getYamlFromComments()`
+  Refactored code that previously was inside `getYaml()` to a own function in order to make it more reusible and the the code base more modular
+- modified: default of argument `where` is now `parent.frame()` instead of `.GlobalEnv`
+
+## MINOR CHANGES
+
+- modified: made code now in `getYamlFromComments()` more robust
+- modified: unit tests
+
+## MISC
+
+-----
+
 # CHANGES IN yamlr VERSION 0.4.4
 
 ## NEW FEATURES
