@@ -1,3 +1,22 @@
+# CHANGES IN yamlr VERSION 0.4.4
+
+## NEW FEATURES
+
+## BUG FIXES
+
+- fixed: #1
+  Certain constellations of curly brackets and YAML in comments still led to errors.
+
+## MAJOR CHANGES
+
+## MINOR CHANGES
+
+- modified: `README.md`
+
+## MISC
+
+-----
+
 # CHANGES IN yamlr VERSION 0.4.3
 
 ## NEW FEATURES
