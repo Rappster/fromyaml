@@ -15,15 +15,40 @@ Object containing identified YAML markup as returned by
 \description{
 Parses YAML markup as identified by \code{\link[yamlr]{getYaml}}.
 }
+\section{YAML syntax}{
+
+
+Note that the YAML statement for specifying object references must
+be as follows:
+
+\code{object-ref: {id: {id}, where: {where}, as: {id-ref}}}
+
+Note that elements \code{where} and \code{as} are optional and that spaces
+are required between each syntax component. While the lack of spaces will
+cause a parsing error in \code{\link[yaml]{yaml.load}}, additional spaces
+do not casue any trouble.
+
+Example for valid YAML statements
+
+\itemize{
+   \item{\code{object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}}}
+   \item{\code{object-ref: {id: x_1, where: .GlobalEnv}}}
+   \item{\code{object-ref: {id: x_1}}}
+   \item{\code{object-ref:  {  id:   x_1, where  : .GlobalEnv, as: ref_1  }}}
+}
+
+See the official \href{YAML website}{http://www.yaml.org/} for more
+details about YAML
+}
 \examples{
 \dontrun{
 
 ## Get //
 yaml <- getYaml(
   from = function() {
-  "reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
+  "object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
   },
-  ctx = YamlContext.ReactiveReference.S3()
+  ctx = YamlContext.ObjectReference.S3()
 )
 
 ## Parse //
@@ -46,7 +71,7 @@ Janko Thyson \email{janko.thyson@rappster.de}
 }
 \seealso{
 \code{
-  	\link[yamlr]{parseYaml-function-YamlContext.ReactiveReference.S3-method}
+  	\link[yamlr]{parseYaml-function-YamlContext.ObjectReference.S3-method}
 }
 }
 

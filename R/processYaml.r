@@ -7,14 +7,16 @@
 #' 
 #' @details 
 #' Currently, this means that all processing steps associated with the context 
-#' \code{\link[yamlr]{YamlContext.ReactiveReference.S3}} are executed:
+#' \code{\link[yamlr]{YamlContext.ObjectReference.S3}} are executed:
 #' 
-#' \itemiz{
+#' \itemize{
 #'    \item{\code{\link[yamlr]{getYaml}}}
 #'    \item{\code{\link[yamlr]{parseYaml}}}
 #'    \item{\code{\link[yamlr]{buildExpressionFromYaml}}}
 #'    \item{\code{\link[yamlr]{updateYamlSource}}}
 #' }
+#' 
+#' @template yaml-syntax
 #'   	
 #' @param from \strong{Signature argument}.
 #'    Object containing YAML markup.
@@ -22,13 +24,13 @@
 #'    Markup proecessing context.
 #' @param where \code{\link{environment}}.
 #'    Environment in which to assign the function in the \code{src} field of 
-#'    class \code{\link[yamlr]{ReactiveReferenceYaml.S3}}. Only relevant 
+#'    class \code{\link[yamlr]{ObjectReferenceYaml.S3}}. Only relevant 
 #'    in case the YAML has been provided via comments instead of an 
 #'    inline string as this involves some additional transformation steps.
 #' @template threedots
 #' @example inst/examples/processYaml.r
 #' @seealso \code{
-#'   	\link[yamlr]{processYaml-function-YamlContext.ReactiveReference.S3-method},
+#'   	\link[yamlr]{processYaml-function-YamlContext.ObjectReference.S3-method},
 #'    \link[yamlr]{getYaml},
 #'    \link[yamlr]{parseYaml},
 #'    \link[yamlr]{buildExpressionFromYaml},
@@ -53,7 +55,7 @@ setGeneric(
 )
 
 #' @title
-#' Get YAML Markup (function-YamlContext.ReactiveReference.S3)
+#' Get YAML Markup (function-YamlContext.ObjectReference.S3)
 #'
 #' @description 
 #' See generic: \code{\link[yamlr]{processYaml}}
@@ -71,13 +73,13 @@ setGeneric(
 #' }
 #' @template author
 #' @template references
-#' @aliases processYaml-function-YamlContext.ReactiveReference.S3-method
+#' @aliases processYaml-function-YamlContext.ObjectReference.S3-method
 #' @export
 setMethod(
   f = "processYaml", 
   signature = signature(
     from = "function",
-    ctx = "YamlContext.ReactiveReference.S3"
+    ctx = "YamlContext.ObjectReference.S3"
   ), 
   definition = function(
     from,

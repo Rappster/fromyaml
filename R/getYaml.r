@@ -4,19 +4,21 @@
 #' @description 
 #' Identifies lines that correspond to YAML markup.
 #'   	
+#' @template yaml-syntax
+#'     
 #' @param from \strong{Signature argument}.
 #'    Object containing YAML markup.
 #' @param ctx \strong{Signature argument}.
 #'    Markup proecessing context.
 #' @param where \code{\link{environment}}.
 #'    Environment in which to assign the function in the \code{src} field of 
-#'    class \code{\link[yamlr]{ReactiveReferenceYaml.S3}}. Only relevant 
+#'    class \code{\link[yamlr]{ObjectReferenceYaml.S3}}. Only relevant 
 #'    in case the YAML has been provided via comments instead of an 
 #'    inline string as this involves some additional transformation steps.
 #' @template threedots
 #' @example inst/examples/getYaml.r
 #' @seealso \code{
-#'   	\link[yamlr]{getYaml-function-YamlContext.ReactiveReference.S3-method}
+#'   	\link[yamlr]{getYaml-function-YamlContext.ObjectReference.S3-method}
 #' }
 #' @template author
 #' @template references
@@ -37,7 +39,7 @@ setGeneric(
 )
 
 #' @title
-#' Get YAML Markup (function-YamlContext.ReactiveReference.S3)
+#' Get YAML Markup (function-YamlContext.ObjectReference.S3)
 #'
 #' @description 
 #' See generic: \code{\link[yamlr]{getYaml}}
@@ -51,13 +53,13 @@ setGeneric(
 #' }
 #' @template author
 #' @template references
-#' @aliases getYaml-function-YamlContext.ReactiveReference.S3-method
+#' @aliases getYaml-function-YamlContext.ObjectReference.S3-method
 #' @export
 setMethod(
   f = "getYaml", 
   signature = signature(
     from = "function",
-    ctx = "YamlContext.ReactiveReference.S3"
+    ctx = "YamlContext.ObjectReference.S3"
   ), 
   definition = function(
     from,
@@ -67,7 +69,7 @@ setMethod(
   ) {
     
   ## Identification pattern //    
-  pattern <- ".*reactive-ref:\\s?\\{\\s?id\\s?:\\s?\\w+.*\\}"
+  pattern <- ctx$pattern
   
   ## Store initial form of `from` //
   from_0 <- from
@@ -97,13 +99,13 @@ setMethod(
     }
   }
   if (length(index)) {
-    ReactiveReferenceYaml.S3(
+    ObjectReferenceYaml.S3(
       original = unname(sapply(index, function(idx) from[[idx]])),
       index = index,
       src = from_0
     )
   } else {
-    ReactiveReferenceYaml.S3()
+    ObjectReferenceYaml.S3()
   }
   
   }

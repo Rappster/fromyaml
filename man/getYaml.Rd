@@ -14,7 +14,7 @@ Markup proecessing context.}
 
 \item{where}{\code{\link{environment}}.
 Environment in which to assign the function in the \code{src} field of
-class \code{\link[yamlr]{ReactiveReferenceYaml.S3}}. Only relevant
+class \code{\link[yamlr]{ObjectReferenceYaml.S3}}. Only relevant
 in case the YAML has been provided via comments instead of an
 inline string as this involves some additional transformation steps.}
 
@@ -22,6 +22,31 @@ inline string as this involves some additional transformation steps.}
 }
 \description{
 Identifies lines that correspond to YAML markup.
+}
+\section{YAML syntax}{
+
+
+Note that the YAML statement for specifying object references must
+be as follows:
+
+\code{object-ref: {id: {id}, where: {where}, as: {id-ref}}}
+
+Note that elements \code{where} and \code{as} are optional and that spaces
+are required between each syntax component. While the lack of spaces will
+cause a parsing error in \code{\link[yaml]{yaml.load}}, additional spaces
+do not casue any trouble.
+
+Example for valid YAML statements
+
+\itemize{
+   \item{\code{object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}}}
+   \item{\code{object-ref: {id: x_1, where: .GlobalEnv}}}
+   \item{\code{object-ref: {id: x_1}}}
+   \item{\code{object-ref:  {  id:   x_1, where  : .GlobalEnv, as: ref_1  }}}
+}
+
+See the official \href{YAML website}{http://www.yaml.org/} for more
+details about YAML
 }
 \examples{
 \dontrun{
@@ -33,10 +58,10 @@ Identifies lines that correspond to YAML markup.
 ## With curly brackets //  
 yaml <- getYaml(
   from = function() {
-    "reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
+    "object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
     ref_1 * 2
   },
-  ctx = YamlContext.ReactiveReference.S3()
+  ctx = YamlContext.ObjectReference.S3()
 )
 yaml
 yaml$original
@@ -46,8 +71,8 @@ yaml$src
 ## W/o curly brackets //
 yaml <- getYaml(
   from = function()
-    "reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}",
-  ctx = YamlContext.ReactiveReference.S3()
+    "object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}",
+  ctx = YamlContext.ObjectReference.S3()
 )
 yaml$original
 yaml$original
@@ -61,10 +86,10 @@ yaml$src
 ## With curly brackets //  
 yaml <- getYaml(
   from = function() {
-    ## reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}
+    ## object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}
     ref_1 * 2
   },
-  ctx = YamlContext.ReactiveReference.S3()
+  ctx = YamlContext.ObjectReference.S3()
 )
 yaml$original
 yaml$index
@@ -73,9 +98,9 @@ yaml$src
 ## W/o curly brackets //
 yaml <- getYaml(
   from = function()
-    ## reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}
+    ## object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}
     ref_1 * 2,
-  ctx = YamlContext.ReactiveReference.S3()
+  ctx = YamlContext.ObjectReference.S3()
 )
 yaml$original
 yaml$index
@@ -91,7 +116,7 @@ Janko Thyson \email{janko.thyson@rappster.de}
 }
 \seealso{
 \code{
-  	\link[yamlr]{getYaml-function-YamlContext.ReactiveReference.S3-method}
+  	\link[yamlr]{getYaml-function-YamlContext.ObjectReference.S3-method}
 }
 }
 
