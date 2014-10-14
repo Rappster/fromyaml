@@ -1,3 +1,11 @@
+# Version 0.4.5
+ - Merge branch 'master' into develop
+ - Merge branch 'release-0.4.4'
+ - build commit v0.4.4
+ - Merge branch 'release-0.4.4'
+
+----------
+
 # Version 0.4.4
  - fixes #2
  - Merge branch 'master' into develop

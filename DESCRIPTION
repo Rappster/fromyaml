@@ -1,15 +1,14 @@
 Package: yamlr
 Type: Package
 Title: Processes YAML markup
-Version: 0.4.4
-Date: 2014-10-14 16:18:18
+Version: 0.4.5
+Date: 2014-10-14 21:47:13
 Author: Janko Thyson [aut, cre]
 Maintainer: Janko Thyson <janko.thyson@gmail.com>
 Description: Useful functionality to identify, parse and process YAML markup
-    in a flexible and extendable manner.
+        in a flexible and extendable manner.
 License: GPL (>= 2)
 Roxygen: list(wrap = FALSE)
 NeedsCompilation: no
 Repository: CRAN
-Imports:
-    yaml
+Imports: yaml
