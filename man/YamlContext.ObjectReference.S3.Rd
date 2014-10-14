@@ -4,7 +4,7 @@
 \title{Class: YamlContext.ObjectReference.S3}
 \usage{
 YamlContext.ObjectReference.S3(.x, ctx = "YamlContext.ObjectReference.S3",
-  pattern = ".*object-ref:\\\\s?\\\\{\\\\s?id\\\\s?: \\\\w+.*\\\\}")
+  pattern = ".*object-ref:\\\\s+\\\\{\\\\s*id\\\\s*:\\\\s+\\\\w+.*\\\\}")
 }
 \arguments{
 \item{.x}{\code{\link{ANY}}. An object of an arbitrary class whose class
@@ -28,7 +28,7 @@ Initial: \code{"YamlContext.ObjectReference.S3"}.}
 
 \item{\code{pattern}}{\code{\link{character}}.
 Pattern to recognize YAML markup.
-Initial: \code{".*object-ref:\\s?\\{\\s?id\\s?: \\w+.*\\}"}.}
+Initial: \code{".*object-ref:\\s+\\{\\s*id\\s*:\\s+\\w+.*\\}"}.}
 }}
 \section{Intended use of this class}{
 
