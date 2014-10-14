@@ -1,6 +1,8 @@
 # Version 0.4.3
  - fixes #10
- - - ReactiveReference* --> ObjectReference* - new field in YamlContext.ObjectReference.S3() - new roxygen template - checked YAML syntax validity
+ - ReactiveReference* --> ObjectReference* 
+ - new field in YamlContext.ObjectReference.S3() 
+ - new roxygen template - checked YAML syntax validity
  - Merge branch 'master' into develop
  - Merge branch 'release-0.4.2'
  - build commit v0.4.2
