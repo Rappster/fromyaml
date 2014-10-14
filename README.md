@@ -74,6 +74,28 @@ x_1 <- 10
 eval(yaml$src())
 ```
 
+Note that the function body of `from` can also call any function in order to process the object reference
+
+```
+x_1 <- 10
+foo <- function(x) {
+  message("Value of 'x' in 'foo()':")
+  print(x)
+  x * 2
+}
+yaml <- processYaml(
+  from = function() {
+    "object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
+    message("Referenced object 'x_1' from '.GlobalEnv' as 'ref_1':")
+    foo(x = ref_1)
+  },
+  ctx = YamlContext.ObjectReference.S3()
+)
+yaml
+yaml$src
+eval(yaml$src())
+```
+
 -----
 
 ## Identifying/retrieving YAML markup
