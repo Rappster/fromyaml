@@ -81,69 +81,15 @@ setMethod(
     any(grepl(pattern, from))
   }))
   if (!length(index)) {
-    ## Try if YAML was specified as comment //
-    bdy <- body(from_0)
-    has_curly <- if (length(bdy) > 1 && bdy[[1]] == "{") {
-      TRUE
-    } else {
-      FALSE
-    }
-    code <- capture.output(from_0)
-    index <- which(sapply(code, function(from) {
-      any(grepl(pattern, from))
-    }))
-    if (length(index)) {
-      ## Transform expression //
-      ## Remove trailing curly bracket //
-      if (has_curly) {
-        if (grepl("^\\}|[^\\w]\\s?\\}$", code[length(code)], perl = TRUE)) {
-        ## Last line only contains whitespace and `}` //
-          ## --> very important to check for *both* patterns!!!
-          code <- code[-length(code)]
-        } else {
-        ## Last line only contains actual code and `}` at end //        
-          code[length(code)] <- gsub("}", "", code[length(code)])
-        }
-      }
-      code[index] <- paste0("\"", gsub("\\s*#\\s*", "", code[index]), "\"")
-      expr_char <- paste(c("quote({", paste(rep("expr", length(code[-1]))), "})"),
-                         collapse = "\n")
-      
-      ## Create dummy function whose body is filled //
-      tmp <- function() expr
-      body(tmp) <- eval(parse(text = expr_char))
-      ## Fill body //
-      for(ii in seq(along = code[-1])) {
-        body(tmp)[[ii+1]] <- substitute(
-          CODE, 
-          list(CODE = parse(text = code[-1][[ii]])[[1]])
-        )
-      }
-      
-      ## Pass arguments along //
-      formals(tmp) <- formals(from_0)
-      
-      ## Rename and function environment //
-      from_0 <- tmp
-      environment(from_0) <- where
-      from <- body(from_0)
-      
-      ## Regular function now --> grep pattern like above //
-      index <- which(sapply(from, function(from) {
-        any(grepl(pattern, from))
-      }))
-      in_body <- TRUE
-    }
-  }
-  if (length(index)) {
-    ObjectReferenceYaml.S3(
+    out <- getYamlFromComments(from = from_0, ctx = ctx, where = where)
+  } else {
+    out <- ObjectReferenceYaml.S3(
       original = unname(sapply(index, function(idx) from[[idx]])),
       index = index,
       src = from_0
     )
-  } else {
-    ObjectReferenceYaml.S3()
   }
+  return(out)
   
   }
 )

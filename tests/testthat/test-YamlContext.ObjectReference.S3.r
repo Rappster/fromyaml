@@ -1,5 +1,8 @@
-context("YamlContext.ObjectReference.S3_A")
-test_that("YamlContext.ObjectReference.S3", {
+##------------------------------------------------------------------------------
+context("YamlContext.ObjectReference.S3/basics")
+##------------------------------------------------------------------------------
+
+test_that("YamlContext.ObjectReference.S3/create", {
 
   expect_is(res <- YamlContext.ObjectReference.S3(), 
             "YamlContext.ObjectReference.S3")
