@@ -17,7 +17,7 @@
 #'    Initial: \code{"YamlContext.ObjectReference.S3"}.
 #' @field pattern \code{\link{character}}.
 #'    Pattern to recognize YAML markup. 
-#'    Initial: \code{".*object-ref:\\s?\\{\\s?id\\s?: \\w+.*\\}"}.
+#'    Initial: \code{".*object-ref:\\s+\\{\\s*id\\s*:\\s+\\w+.*\\}"}.
 #' @return Instance of class \code{YamlContext.ObjectReference.S3}.
 #' @example inst/examples/YamlContext.ObjectReference.S3.r
 #' @template author
@@ -26,7 +26,7 @@
 YamlContext.ObjectReference.S3 <- function(
   .x,
   ctx = "YamlContext.ObjectReference.S3",
-  pattern = ".*object-ref:\\s?\\{\\s?id\\s?: \\w+.*\\}"
+  pattern = ".*object-ref:\\s+\\{\\s*id\\s*:\\s+\\w+.*\\}"
 ) {
   if (!missing(.x)) {
     class(.x) <- c("YamlContext.ObjectReference.S3", class(.x))

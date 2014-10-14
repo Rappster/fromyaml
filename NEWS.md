@@ -1,3 +1,20 @@
+# CHANGES IN yamlr VERSION 0.4.6
+
+## NEW FEATURES
+
+## BUG FIXES
+
+## MAJOR CHANGES
+
+## MINOR CHANGES
+
+- modified: pattern to identify YAML markup in `YamlContext.ObjectReference.S3`
+- modified: `README.md`
+
+## MISC
+
+-----
+
 # CHANGES IN yamlr VERSION 0.4.5
 
 ## NEW FEATURES
