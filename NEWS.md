@@ -1,3 +1,27 @@
+# CHANGES IN yamlr VERSION 0.4.3
+
+## NEW FEATURES
+
+## BUG FIXES
+
+- fixed: #10
+  Failure to recognize multiple YAML statements when specified as comments
+
+## MAJOR CHANGES
+
+- renamed: `ReactiveReference*` --> `ObjectReference*` 
+- added: field `pattern` in `YamlContext.ObjectReference.S3()`
+  Regular expression pattern to identify the YAML markup for the respective context.
+- added: roxygen template `yaml-syntax` 
+
+## MINOR CHANGES
+
+## MISC
+
+- checked YAML syntax validity in unit test `test-parseYaml.r`
+
+-----
+
 # CHANGES IN yamlr VERSION 0.4.2
 
 ## NEW FEATURES
