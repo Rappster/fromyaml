@@ -1,5 +1,8 @@
-context("ObjectReferenceYamlProcessed.S3_A")
-test_that("ObjectReferenceYamlProcessed.S3", {
+##------------------------------------------------------------------------------
+context("ObjectReferenceYamlProcessed.S3/basics")
+##------------------------------------------------------------------------------
+
+test_that("ObjectReferenceYamlProcessed.S3/create", {
 
   expect_is(ObjectReferenceYamlProcessed.S3(), 
             "ObjectReferenceYamlProcessed.S3")

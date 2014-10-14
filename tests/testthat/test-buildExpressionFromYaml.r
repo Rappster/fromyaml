@@ -1,5 +1,8 @@
-context("buildExpressionFromYaml-A")
-test_that("buildExpressionFromYaml", {
+##------------------------------------------------------------------------------
+context("buildExpressionFromYaml/basics")
+##------------------------------------------------------------------------------
+
+test_that("buildExpressionFromYaml/basics", {
   
   yaml <- getYaml(
     from = function() {

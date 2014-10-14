@@ -74,7 +74,7 @@ x_1 <- 10
 eval(yaml$src())
 ```
 
-Note that the function body of `from` can also call any function in order to process the object reference
+Note that the function body of `from` can also call arbitrary other functions in order to process the object reference in the desired way
 
 ```
 x_1 <- 10

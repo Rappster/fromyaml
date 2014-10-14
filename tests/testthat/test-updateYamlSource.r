@@ -1,10 +1,13 @@
-context("updateYamlSource-A")
-test_that("updateYamlSource", {
+##------------------------------------------------------------------------------
+context("updateYamlSource/basics")
+##------------------------------------------------------------------------------
+
+test_that("updateYamlSource/basics", {
   
   yaml <- getYaml(
     from = function() {
-    "object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
-    ref_1
+      "object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
+      ref_1
     },
     ctx = YamlContext.ObjectReference.S3()
   )
@@ -17,7 +20,7 @@ test_that("updateYamlSource", {
       
 })
 
-test_that("just ID", {
+test_that("updateYamlSource/just ID", {
   
   yaml <- getYaml(
     from = function() "object-ref: {id: x_1}",
