@@ -35,6 +35,12 @@ object-ref: {id: {id}, where: {where}, as: {id-ref}}
 
 Note that elements `where` and `as` are optional and that spaces are required between each syntax component. While the lack of spaces will cause a parsing error in `yaml::yaml.load`, additional spaces do not casue any trouble.
 
+This is the regular expression used to identify YAML markup
+
+```
+.*object-ref:\\s+\\{\\s*id\\s*:\\s+\\w+.*\\}
+```
+
 ### Example for valid YAML statements
 
 ```
