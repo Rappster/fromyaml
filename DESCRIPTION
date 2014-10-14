@@ -1,8 +1,8 @@
 Package: yamlr
 Type: Package
 Title: Processes YAML markup
-Version: 0.4.2
-Date: 2014-10-13 23:00:08
+Version: 0.4.3
+Date: 2014-10-14 14:09:44
 Author: Janko Thyson [aut, cre]
 Maintainer: Janko Thyson <janko.thyson@gmail.com>
 Description: Useful functionality to identify, parse and process YAML markup

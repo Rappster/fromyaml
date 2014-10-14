@@ -3,6 +3,8 @@
 #'
 #' @description 
 #' Parses YAML markup as identified by \code{\link[yamlr]{getYaml}}.
+#' 
+#' @template yaml-syntax
 #'   	
 #' @param yaml \strong{Signature argument}.
 #'    Object containing identified YAML markup as returned by 
@@ -10,7 +12,7 @@
 #' @template threedots
 #' @example inst/examples/parseYaml.r
 #' @seealso \code{
-#'   	\link[yamlr]{parseYaml-function-YamlContext.ReactiveReference.S3-method}
+#'   	\link[yamlr]{parseYaml-function-YamlContext.ObjectReference.S3-method}
 #' }
 #' @template author
 #' @template references
@@ -28,14 +30,14 @@ setGeneric(
 )
 
 #' @title
-#' Parse YAML Markup (ReactiveReferenceYaml.S3)
+#' Parse YAML Markup (ObjectReferenceYaml.S3)
 #'
 #' @description 
 #' See generic: \code{\link[yamlyaml]{parseYaml}}
 #'      
 #' @inheritParams parseYaml
-#' @param yaml \code{\link{ReactiveReferenceYaml.S3}}.
-#' @return \code{\link{ReactiveReferenceYamlParsed.S3}}. 
+#' @param yaml \code{\link{ObjectReferenceYaml.S3}}.
+#' @return \code{\link{ObjectReferenceYamlParsed.S3}}. 
 #'    Parsed YAML markup.
 #' @example inst/examples/parseYaml.r
 #' @seealso \code{
@@ -45,11 +47,11 @@ setGeneric(
 #' @template references
 #' @export
 #' @import yaml
-#' @aliases parseYaml-ReactiveReferenceYaml.S3-method
+#' @aliases parseYaml-ObjectReferenceYaml.S3-method
 setMethod(
   f = "parseYaml", 
   signature = signature(
-    yaml = "ReactiveReferenceYaml.S3"
+    yaml = "ObjectReferenceYaml.S3"
   ), 
   definition = function(
     yaml,
@@ -75,7 +77,7 @@ setMethod(
     parsed
   })
   names(parsed) <- nms
-  out <- yamlr::ReactiveReferenceYamlParsed.S3(
+  out <- yamlr::ObjectReferenceYamlParsed.S3(
     original = yaml$original,
     parsed = parsed,
     index = yaml$index,

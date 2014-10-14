@@ -14,21 +14,23 @@
 #' (for example "check if the specified reference actually exists and throw 
 #' an error if it doesn't").
 #' 
-#' See method \code{\link[yamlr]{buildExpressionFromYaml-ReactiveReferenceYamlParsed.S3-method}}
+#' See method \code{\link[yamlr]{buildExpressionFromYaml-ObjectReferenceYamlParsed.S3-method}}
 #' for an example for this
+#'     
+#' @template yaml-syntax
 #'     
 #' @param yaml \strong{Signature argument}.
 #'    Object containing parsed YAML markup as returned by 
 #'    \code{\link[yamlr]{parseYaml}}.
 #' @param where \code{\link{environment}}.
 #'    Environment in which to assign the function in the \code{src} field of 
-#'    class \code{\link[yamlr]{ReactiveReferenceYaml.S3}}. Only relevant 
+#'    class \code{\link[yamlr]{ObjectReferenceYaml.S3}}. Only relevant 
 #'    in case the YAML has been provided via comments instead of an 
 #'    inline string as this involves some additional transformation steps.
 #' @template threedots
 #' @example inst/examples/buildExpressionFromYaml.r
 #' @seealso \code{
-#'   	\link[yamlr]{buildExpressionFromYaml-ReactiveReferenceYamlParsed.S3-method}
+#'   	\link[yamlr]{buildExpressionFromYaml-ObjectReferenceYamlParsed.S3-method}
 #' }
 #' @template author
 #' @template references
@@ -47,14 +49,14 @@ setGeneric(
 )
 
 #' @title
-#' Build Expression Based on YAML Markup (ReactiveReferenceYamlParsed.S3)
+#' Build Expression Based on YAML Markup (ObjectReferenceYamlParsed.S3)
 #'
 #' @description 
 #' See generic: \code{\link[yamlyaml]{buildExpressionFromYaml}}
 #'      
 #' @inheritParams buildExpressionFromYaml
-#' @param yaml \code{\link{ReactiveReferenceYamlParsed.S3}}.
-#' @return \code{\link{ReactiveReferenceYamlProcessed.S3}}. 
+#' @param yaml \code{\link{ObjectReferenceYamlParsed.S3}}.
+#' @return \code{\link{ObjectReferenceYamlProcessed.S3}}. 
 #'    Processed YAML markup.
 #' @example inst/examples/buildExpressionFromYaml.r
 #' @seealso \code{
@@ -63,11 +65,11 @@ setGeneric(
 #' @template author
 #' @template references
 #' @export
-#' @aliases buildExpressionFromYaml-ReactiveReferenceYamlParsed.S3-method
+#' @aliases buildExpressionFromYaml-ObjectReferenceYamlParsed.S3-method
 setMethod(
   f = "buildExpressionFromYaml", 
   signature = signature(
-    yaml = "ReactiveReferenceYamlParsed.S3"
+    yaml = "ObjectReferenceYamlParsed.S3"
   ), 
   definition = function(
     yaml,
@@ -117,7 +119,7 @@ setMethod(
     env
   })
 
-  out <- ReactiveReferenceYamlProcessed.S3(
+  out <- ObjectReferenceYamlProcessed.S3(
     original = yaml$original,
     parsed = yaml$parsed,
     index = yaml$index,

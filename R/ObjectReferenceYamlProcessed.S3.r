@@ -1,5 +1,5 @@
 #' @title
-#' Class: ReactiveReferenceYamlParsed.S3 
+#' Class: ObjectReferenceYamlProcessed.S3 
 #'
 #' @description
 #' Class representing parsed YAML markup as returned by function 
@@ -11,7 +11,7 @@
 #'
 #' @param .x \code{\link{ANY}}. An object of an arbitrary class whose class
 #'    attribute should be updated so that it becomes an instance of class
-#'    \code{ReactiveReferenceYamlParsed.S3}. Mainly intended for rapid prototyping 
+#'    \code{ObjectReferenceYamlProcessed.S3}. Mainly intended for rapid prototyping 
 #'    purposes
 #'    
 #' @field original \code{\link{character}}.
@@ -32,25 +32,33 @@
 #'    can contain YAML markup and for which methods for 
 #'    \code{\link[yamlr]{getYaml}} are defined.
 #'    Initial: \code{NULL}.
-#' @return Instance of class \code{ReactiveReferenceYamlParsed.S3}.
-#' @example inst/examples/ReactiveReferenceYamlParsed.S3.r
+#' @field expr \code{\link{environment}}.
+#'    Necessary expressions in the context of processing YAML markup.
+#'    Typically, these are \code{\link[base]{get}}, \code{\link[base]{exists}}
+#'    and \code{\link[base]{assign}} expressions, but generally this field 
+#'    can hold any valid R expression.
+#'    Initial: \code{new.env(parent = emptyenv())}.
+#' @return Instance of class \code{ObjectReferenceYamlProcessed.S3}.
+#' @example inst/examples/ObjectReferenceYamlProcessed.S3.r
 #' @seealso \code{
-#'   	\link[yamlr]{ReactiveReferenceYaml.S3},
+#'   	\link[yamlr]{ObjectReferenceYaml.S3},
+#'     \link[yamlr]{ObjectReferenceYamlProcessed.S3},
 #'     \link[yamlr]{getYaml},
 #'     \link[yamlr]{parseYaml}
 #' }
 #' @template author
 #' @template references
 #' @export
-ReactiveReferenceYamlParsed.S3 <- function(
+ObjectReferenceYamlProcessed.S3 <- function(
   .x,
   original = character(),
   parsed = list(id = character, where = NULL, as = NULL),
   index = numeric(),
-  src = NULL
+  src = NULL,
+  expr = new.env(parent = emptyenv())
 ) {
   if (!missing(.x)) {
-    class(.x) <- c("ReactiveReferenceYamlParsed.S3", class(.x))
+    class(.x) <- c("ObjectReferenceYamlProcessed.S3", class(.x))
     out <- .x
   } else {
     out <- new.env()
@@ -58,7 +66,8 @@ ReactiveReferenceYamlParsed.S3 <- function(
     out$parsed <- parsed
     out$index <- index
     out$src <- src
-    class(out) <- c("ReactiveReferenceYamlParsed.S3", class(out))
+    out$expr <- expr
+    class(out) <- c("ObjectReferenceYamlProcessed.S3", class(out))
   }
   return(out)
 }

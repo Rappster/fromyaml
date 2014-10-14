@@ -21,9 +21,30 @@ To realize a generic approach, the basic workflow method `getYaml()` takes two a
 
 - `ctx` an object denoting the application context
  
-  Current available contexts:
+  Currently available contexts:
  
-  - `YamlContext.ReactiveReference.S3`
+  - `YamlContext.ObjectReference.S3`
+ 
+## YAML syntax
+
+Note that the YAML statement for specifying **object references** (currently the only context that is defined in the package iteself) must be as follows:
+
+```
+object-ref: {id: {id}, where: {where}, as: {id-ref}}
+```
+
+Note that elements `where` and `as` are optional and that spaces are required between each syntax component. While the lack of spaces will cause a parsing error in `yaml::yaml.load`, additional spaces do not casue any trouble.
+
+### Example for valid YAML statements
+
+```
+object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}
+object-ref: {id: x_1, where: parent.env()}
+object-ref: {id: x_1}
+object-ref:  {  id:   x_1, where  : where_1, as: ref_1  }
+```
+
+See the official [YAML website]{http://www.yaml.org/} for more details about YAML
  
 ## Processing YAML markup
 
@@ -38,10 +59,10 @@ Currently, the underlying objects containing YAML markup are functions and the p
 ```
 yaml <- processYaml(
   from = function() {
-    "reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
+    "object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
     ref_1 * 2
   },
-  ctx = YamlContext.ReactiveReference.S3()
+  ctx = YamlContext.ObjectReference.S3()
 )
 yaml
 yaml$src
@@ -61,11 +82,11 @@ Function `getYaml`:
  
 Takes an object that contains YAML markup and then tries to identify and retrieve the actual markup. 
  
-Current available methods:
+Currently available methods:
  
-- `getYaml-function-YamlContext.ReactiveReference.S3-method`:
+- `getYaml-function-YamlContext.ObjectReference.S3-method`:
  
-  returns instance of class `ReactiveReferenceYaml.S3`
+  returns instance of class `ObjectReferenceYaml.S3`
  	
 ### Example
 
@@ -75,10 +96,10 @@ YAML markdown as inline string
 ## With curly brackets //  
 yaml <- getYaml(
   from = function() {
-    "reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
+    "object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
     ref_1 * 2
   },
-  ctx = YamlContext.ReactiveReference.S3()
+  ctx = YamlContext.ObjectReference.S3()
 )
 yaml
 yaml$original
@@ -88,8 +109,8 @@ yaml$src
 ## W/o curly brackets //
 yaml <- getYaml(
   from = function()
-    "reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}",
-  ctx = YamlContext.ReactiveReference.S3()
+    "object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}",
+  ctx = YamlContext.ObjectReference.S3()
 )
 yaml$original
 yaml$original
@@ -103,10 +124,10 @@ YAML markdown as comment
 ## With curly brackets //  
 yaml <- getYaml(
   from = function() {
-    ## reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}
+    ## object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}
     ref_1 * 2
   },
-  ctx = YamlContext.ReactiveReference.S3()
+  ctx = YamlContext.ObjectReference.S3()
 )
 yaml$original
 yaml$index
@@ -115,9 +136,9 @@ yaml$src
 ## W/o curly brackets //
 yaml <- getYaml(
   from = function()
-    ## reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}
+    ## object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}
     ref_1 * 2,
-  ctx = YamlContext.ReactiveReference.S3()
+  ctx = YamlContext.ObjectReference.S3()
 )
 yaml$original
 yaml$index
@@ -130,11 +151,11 @@ Function `parseYaml`:
  
 Takes an object as returned by `getYaml` and parses it. 
  
-Current available methods:
+Currently available methods:
  
-- `parseYaml-ReactiveReferenceYaml.S3-method`:
+- `parseYaml-ObjectReferenceYaml.S3-method`:
  
-  returns instance of class `ReactiveReferenceYamlParsed.S3`
+  returns instance of class `ObjectReferenceYamlParsed.S3`
  
 ### Example 
 
@@ -142,10 +163,10 @@ Current available methods:
 ## Get //
 yaml <- getYaml(
   from = function() {
-    "reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
+    "object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
     ref_1 * 2
   },
-  ctx = YamlContext.ReactiveReference.S3()
+  ctx = YamlContext.ObjectReference.S3()
 )
 
 ## Parse //
@@ -165,11 +186,11 @@ Function `buildExpressionFromYaml`:
  
 Takes an object as returned by `parseYaml` and builds suitable expressions based on the provided YAML markup. 
  
-Current available methods:
+Currently available methods:
  
-- `buildExpressionFromYaml-ReactiveReferenceYamlParsed.S3-method`:
+- `buildExpressionFromYaml-ObjectReferenceYamlParsed.S3-method`:
  
-  returns instance of class `ReactiveReferenceYamlProcessed.S3`
+  returns instance of class `ObjectReferenceYamlProcessed.S3`
  	
 ### Example 
 
@@ -177,10 +198,10 @@ Current available methods:
 ## Get //
 yaml <- getYaml(
   from = function() {
-    "reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
+    "object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
     ref_1 * 2
   },
-  ctx = YamlContext.ReactiveReference.S3()
+  ctx = YamlContext.ObjectReference.S3()
 )
 
 ## Parse //
@@ -230,11 +251,11 @@ Function `updateYamlSource`:
  
 Takes an object as returned by `buildExpressionFromYaml` and updates the underlying source object in order to substitute the YAML markup by suitable expressions to make the object fully self-contained. 
  
-Current available methods:
+Currently available methods:
  
-- `updateYamlSource-ReactiveReferenceYamlProcessed.S3-method`:
+- `updateYamlSource-ObjectReferenceYamlProcessed.S3-method`:
  
-  returns instance of class `ReactiveReferenceYamlProcessed.S3`
+  returns instance of class `ObjectReferenceYamlProcessed.S3`
  			
   The object in field `src` can be used/evaluated as all YAML markup **as expected by the application context (see details in `?yamlr`)** has been substituted by actual expressions.
  	
@@ -244,10 +265,10 @@ Current available methods:
 ## Get //  
 yaml <- getYaml(
   from = function() {
-    "reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
+    "object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
     ref_1 * 2
   },
-  ctx = YamlContext.ReactiveReference.S3()
+  ctx = YamlContext.ObjectReference.S3()
 )
 
 ## Parse //
@@ -280,10 +301,10 @@ rm(yaml)
  
 The package defines the following S3 classes (in order of their workflow usage):
  
-- `YamlContext.ReactiveReference.S3`
-- `ReactiveReferenceYaml.S3`
-- `ReactiveReferenceYamlParsed.S3`
-- `ReactiveReferenceYamlProcessed.S3`
+- `YamlContext.ObjectReference.S3`
+- `ObjectReferenceYaml.S3`
+- `ObjectReferenceYamlParsed.S3`
+- `ObjectReferenceYamlProcessed.S3`
   
 ### NOTE
  

@@ -19,13 +19,15 @@
 #' 		\item{\code{ctx}: } {
 #' 			An object denoting the application context.
 #' 
-#' 			Current available contexts:
+#' 			Currently available contexts:
 #' 
 #' 			\itemize{
-#' 				\item{\code{\link[yamlr]{YamlContext.ReactiveReference.S3}}}
+#' 				\item{\code{\link[yamlr]{YamlContext.ObjectReference.S3}}}
 #' 			}
 #' 		}
 #' } 
+#' 
+#' @template yaml-syntax
 #' 
 #' @section Processing YAML markup:
 #' 
@@ -44,12 +46,12 @@
 #' Takes an object that contains YAML markup and then processes it eventually
 #' resulting in updating the underlying object so that it can be used/executed. 
 #' 
-#' Current available methods:
+#' Currently available methods:
 #' 
 #' \itemize{
-#'   	\item{\code{\link[yamlr]{processYaml-function-YamlContext.ReactiveReference.S3-method}}: } {
+#'   	\item{\code{\link[yamlr]{processYaml-function-YamlContext.ObjectReference.S3-method}}: } {
 #' 
-#' 			Returns instance of class \code{\link[yamlr]{ReactiveReferenceYamlProcessed.S3}}.
+#' 			Returns instance of class \code{\link[yamlr]{ObjectReferenceYamlProcessed.S3}}.
 #' 		}
 #' } 
 #' 
@@ -60,12 +62,12 @@
 #' Takes an object that contains YAML markup and then tries to identify and
 #' retrieve the actual markup. 
 #' 
-#' Current available methods:
+#' Currently available methods:
 #' 
 #' \itemize{
-#' 		\item{\code{\link[yamlr]{getYaml-function-YamlContext.ReactiveReference.S3-method}}: } {
+#' 		\item{\code{\link[yamlr]{getYaml-function-YamlContext.ObjectReference.S3-method}}: } {
 #' 
-#' 			Returns instance of class \code{\link[yamlr]{ReactiveReferenceYaml.S3}}.
+#' 			Returns instance of class \code{\link[yamlr]{ObjectReferenceYaml.S3}}.
 #' 		}
 #' } 
 #' 
@@ -76,12 +78,12 @@
 #' Takes an object as returned by \code{\link[yamlr]{getYaml}}
 #' and parses it. 
 #' 
-#' Current available methods:
+#' Currently available methods:
 #' 
 #' \itemize{
-#' 		\item{\code{\link[yamlr]{parseYaml-ReactiveReferenceYaml.S3-method}}: } {
+#' 		\item{\code{\link[yamlr]{parseYaml-ObjectReferenceYaml.S3-method}}: } {
 #' 
-#' 			Returns instance of class \code{\link[yamlr]{ReactiveReferenceYamlParsed.S3}}.
+#' 			Returns instance of class \code{\link[yamlr]{ObjectReferenceYamlParsed.S3}}.
 #' 		}
 #' }  
 #' 
@@ -92,12 +94,12 @@
 #' Takes an object as returned by \code{\link[yamlr]{parseYaml}}
 #' and builds suitable expressions based on the provided YAML markup. 
 #' 
-#' Current available methods:
+#' Currently available methods:
 #' 
 #' \itemize{
-#' 		\item{\code{\link[yamlr]{buildExpressionFromYaml-ReactiveReferenceYamlParsed.S3-method}}: } {
+#' 		\item{\code{\link[yamlr]{buildExpressionFromYaml-ObjectReferenceYamlParsed.S3-method}}: } {
 #' 
-#' 			Returns instance of class \code{\link[yamlr]{ReactiveReferenceYamlProcessed.S3}}.
+#' 			Returns instance of class \code{\link[yamlr]{ObjectReferenceYamlProcessed.S3}}.
 #' 		}
 #' }  
 #' 
@@ -109,12 +111,12 @@
 #' and updates the underlying source object in order to substitute the 
 #' YAML markup by suitable expressions to make the object fully self-contained. 
 #' 
-#' Current available methods:
+#' Currently available methods:
 #' 
 #' \itemize{
-#' 		\item{\code{\link[yamlr]{updateYamlSource-ReactiveReferenceYamlProcessed.S3-method}}: } {
+#' 		\item{\code{\link[yamlr]{updateYamlSource-ObjectReferenceYamlProcessed.S3-method}}: } {
 #' 
-#' 			Returns instance of class \code{\link[yamlr]{ReactiveReferenceYamlProcessed.S3}}.
+#' 			Returns instance of class \code{\link[yamlr]{ObjectReferenceYamlProcessed.S3}}.
 #' 			
 #' 			The object in field \code{src} can be used/evaluated as all YAML markup
 #' 			\strong{as expected by the application context (see details)}
@@ -128,10 +130,10 @@
 #' (in order of their workflow usage):
 #' 
 #' \itemize{
-#'   	\item{\code{\link[yamlr]{YamlContext.ReactiveReference.S3}}}
-#'     \item{\code{\link[yamlr]{ReactiveReferenceYaml.S3}}}
-#'     \item{\code{\link[yamlr]{ReactiveReferenceYamlParsed.S3}}}
-#'     \item{\code{\link[yamlr]{ReactiveReferenceYamlProcessed.S3}}}
+#'   	\item{\code{\link[yamlr]{YamlContext.ObjectReference.S3}}}
+#'     \item{\code{\link[yamlr]{ObjectReferenceYaml.S3}}}
+#'     \item{\code{\link[yamlr]{ObjectReferenceYamlParsed.S3}}}
+#'     \item{\code{\link[yamlr]{ObjectReferenceYamlProcessed.S3}}}
 #' }  
 #' 
 #' \strong{NOTE}

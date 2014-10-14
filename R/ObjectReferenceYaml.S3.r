@@ -1,16 +1,16 @@
 #' @title
-#' Class: ReactiveReferenceYaml.S3 
+#' Class: ObjectReferenceYaml.S3 
 #'
 #' @description
 #' Class representing YAML markup in the context of reactive references and 
 #' its constructor function. The class for the reactive reference context is
-#' \code{\link[yamlr]{YamlContext.ReactiveReference.S3}}
+#' \code{\link[yamlr]{YamlContext.ObjectReference.S3}}
 #' 
 #' @template intended-use
 #'
 #' @param .x \code{\link{ANY}}. An object of an arbitrary class whose class
 #'    attribute should be updated so that it becomes an instance of class
-#'    \code{ReactiveReferenceYaml.S3}. Mainly intended for rapid prototyping 
+#'    \code{ObjectReferenceYaml.S3}. Mainly intended for rapid prototyping 
 #'    purposes
 #'    
 #' @field original \code{\link{character}}.
@@ -27,29 +27,29 @@
 #'    can contain YAML markup and for which methods for 
 #'    \code{\link[yamlr]{getYaml}} are defined.
 #'    Initial: \code{NULL}.
-#' @return Instance of class \code{ReactiveReferenceYaml.S3}.
-#' @example inst/examples/ReactiveReferenceYaml.S3.r
+#' @return Instance of class \code{ObjectReferenceYaml.S3}.
+#' @example inst/examples/ObjectReferenceYaml.S3.r
 #' @seealso \code{
-#'   	\link[yamlr]{YamlContext.ReactiveReference.S3}
+#'   	\link[yamlr]{YamlContext.ObjectReference.S3}
 #' }
 #' @template author
 #' @template references
 #' @export
-ReactiveReferenceYaml.S3 <- function(
+ObjectReferenceYaml.S3 <- function(
   .x,
   original = character(),
   index = numeric(),
   src = NULL
 ) {
   if (!missing(.x)) {
-    class(.x) <- c("ReactiveReferenceYaml.S3", class(.x))
+    class(.x) <- c("ObjectReferenceYaml.S3", class(.x))
     out <- .x
   } else {
     out <- new.env()
     out$original <- original
     out$index <- index
     out$src <- src
-    class(out) <- c("ReactiveReferenceYaml.S3", class(out))
+    class(out) <- c("ObjectReferenceYaml.S3", class(out))
   }
   return(out)
 }

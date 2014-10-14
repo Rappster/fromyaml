@@ -15,8 +15,33 @@ Object containing processed YAML markup as returned by
 \description{
 Updates the object that originally contained YAML markup. To be more
 specific, the function updates field \code{src} or class
-\code{\link[yamlr]{ReactiveReferenceYamlProcessed}} as returned by
+\code{\link[yamlr]{ObjectReferenceYamlProcessed}} as returned by
 \code{\link[yamlr]{buildExpressionFromYaml}}.
+}
+\section{YAML syntax}{
+
+
+Note that the YAML statement for specifying object references must
+be as follows:
+
+\code{object-ref: {id: {id}, where: {where}, as: {id-ref}}}
+
+Note that elements \code{where} and \code{as} are optional and that spaces
+are required between each syntax component. While the lack of spaces will
+cause a parsing error in \code{\link[yaml]{yaml.load}}, additional spaces
+do not casue any trouble.
+
+Example for valid YAML statements
+
+\itemize{
+   \item{\code{object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}}}
+   \item{\code{object-ref: {id: x_1, where: .GlobalEnv}}}
+   \item{\code{object-ref: {id: x_1}}}
+   \item{\code{object-ref:  {  id:   x_1, where  : .GlobalEnv, as: ref_1  }}}
+}
+
+See the official \href{YAML website}{http://www.yaml.org/} for more
+details about YAML
 }
 \examples{
 \dontrun{
@@ -24,10 +49,10 @@ specific, the function updates field \code{src} or class
 ## Get //  
 yaml <- getYaml(
   from = function() {
-  "reactive-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
+  "object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
   ref_1 * 2
   },
-  ctx = YamlContext.ReactiveReference.S3()
+  ctx = YamlContext.ObjectReference.S3()
 )
 
 ## Parse //
@@ -65,7 +90,7 @@ Janko Thyson \email{janko.thyson@rappster.de}
 }
 \seealso{
 \code{
-  	\link[yamlr]{updateYamlSource-ReactiveReferenceYamlProcessed.S3-method},
+  	\link[yamlr]{updateYamlSource-ObjectReferenceYamlProcessed.S3-method},
     \link[yamlr]{getYaml},
     \link[yamlr]{parseYaml},
     \link[yamlr]{buildExpressionFromYaml}
