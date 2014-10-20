@@ -35,6 +35,26 @@ test_that("processYaml/from inline/multiple", {
 })
 
 ##------------------------------------------------------------------------------
+context("processYaml/inline/expression")
+##------------------------------------------------------------------------------
+
+test_that("processYaml/inline/expression", {
+  
+  yaml <- processYaml(
+    from = captureExpression({
+      "object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
+      ref_1 * 2
+    }),
+    ctx = YamlContext.ObjectReference.S3()
+  )
+  expect_is(yaml$src, "{") 
+  expect_equal(yaml$src[[2]], yaml$expr$x_1$get_assign) 
+  expect_equal(yaml$src[[3]], quote(ref_1 * 2)) 
+      
+})
+
+
+##------------------------------------------------------------------------------
 context("processYaml/comments")
 ##------------------------------------------------------------------------------
 
