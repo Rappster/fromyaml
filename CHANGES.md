@@ -1,3 +1,12 @@
+# Version 0.4.7
+ - Merge branch 'feat-fromExpr' into develop
+ - feature fromExpression
+ - Merge branch 'master' into develop
+ - Merge branch 'release-0.4.6'
+ - refined regular expression pattern
+
+----------
+
 # Version 0.4.6
  - Merge branch 'master' into develop
  - Merge branch 'release-0.4.5'

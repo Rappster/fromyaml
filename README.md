@@ -60,7 +60,7 @@ The goal of processing an object containing YAML markup is to identify and parse
 
 Currently, the underlying objects containing YAML markup are functions and the processing result is a function where the markup is substituted with expressions that retrieve referenced objects
 
-### Example 
+### Example: from `function`
 
 ```
 yaml <- processYaml(
@@ -102,6 +102,25 @@ yaml$src
 eval(yaml$src())
 ```
 
+### Example: from `expression`
+
+```
+yaml <- processYaml(
+  from = captureExpression({
+    "object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
+    ref_1 * 2
+  }),
+  ctx = YamlContext.ObjectReference.S3()
+)
+yaml
+yaml$src
+```
+The source object can now be executed
+
+```
+x_1 <- 10
+eval(yaml$src)
+```
 -----
 
 ## Identifying/retrieving YAML markup
