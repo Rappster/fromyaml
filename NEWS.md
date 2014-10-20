@@ -1,3 +1,21 @@
+# CHANGES IN yamlr VERSION 0.4.7
+
+## NEW FEATURES
+
+- get and parse YAML code based on an `expression` or `captureExpression(expr)`
+
+## BUG FIXES
+
+## MAJOR CHANGES
+
+## MINOR CHANGES
+
+- modified: unit tests and examples
+
+## MISC
+
+-----
+
 # CHANGES IN yamlr VERSION 0.4.6
 
 ## NEW FEATURES
