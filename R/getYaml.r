@@ -138,13 +138,13 @@ setMethod(
 )
 
 #' @title
-#' Get YAML Markup (function-YamlContext.ObjectReference.S3)
+#' Get YAML Markup (curlybracket-YamlContext.ObjectReference.S3)
 #'
 #' @description 
 #' See generic: \code{\link[yamlr]{getYaml}}
-#' 
+#'      
 #' @inheritParams getYaml
-#' @param from \code{{}}.
+#' @param from \code{\link{{}}}.
 #' @param ctx \code{\link{YamlContext.ObjectReference.S3}}.
 #' @return \code{\link{character}}. Identified YAML markup.
 #' @example inst/examples/getYaml.r
@@ -153,7 +153,10 @@ setMethod(
 #' }
 #' @template author
 #' @template references
+#' @name getYaml-brackets
+#' @aliases getYaml-curlybracket-YamlContext.ObjectReference.S3-method
 #' @export
+
 setMethod(
   f = "getYaml", 
   signature = signature(
