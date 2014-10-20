@@ -39,56 +39,13 @@ setGeneric(
 )
 
 #' @title
-#' Get YAML Markup (ANY-YamlContext.ObjectReference.S3)
-#'
-#' @description 
-#' See generic: \code{\link[yamlr]{getYaml}}
-#'      
-#' @inheritParams getYaml
-#' @param from \code{\link{ANY}}.
-#' @param ctx \code{\link{YamlContext.ObjectReference.S3}}.
-#' @return \code{\link{character}}. Identified YAML markup.
-#' @example inst/examples/getYaml.r
-#' @seealso \code{
-#'    \link[yamlr]{getYaml}
-#' }
-#' @template author
-#' @template references
-#' @aliases getYaml-{-YamlContext.ObjectReference.S3-method
-#' @export
-setMethod(
-  f = "getYaml", 
-  signature = signature(
-    from = "ANY",
-    ctx = "YamlContext.ObjectReference.S3"
-  ), 
-  definition = function(
-    from,
-    ctx,
-    where,
-    ...
-  ) {
-    
-  from <- captureExpression(expr = from)
-  getYaml(
-    from = from,
-    ctx = ctx,
-    where = where,
-    ...
-  )
-  
-  }
-)
-
-#' @title
 #' Get YAML Markup (function-YamlContext.ObjectReference.S3)
 #'
 #' @description 
 #' See generic: \code{\link[yamlr]{getYaml}}
 #'      
 #' @inheritParams getYaml
-#' @param from \code{\link{function}}.
-#' @param ctx \code{\link{YamlContext.ObjectReference.S3}}.
+#' @param from \code{\link{missing}}.
 #' @return \code{\link{character}}. Identified YAML markup.
 #' @example inst/examples/getYaml.r
 #' @seealso \code{
@@ -136,58 +93,3 @@ setMethod(
   
   }
 )
-
-#' @title
-#' Get YAML Markup ({-YamlContext.ObjectReference.S3)
-#'
-#' @description 
-#' See generic: \code{\link[yamlr]{getYaml}}
-#'      
-#' @inheritParams getYaml
-#' @param from \code{{}.
-#' @param ctx \code{\link{YamlContext.ObjectReference.S3}}.
-#' @return \code{\link{character}}. Identified YAML markup.
-#' @example inst/examples/getYaml.r
-#' @seealso \code{
-#'    \link[yamlr]{getYaml}
-#' }
-#' @template author
-#' @template references
-#' @aliases getYaml-{-YamlContext.ObjectReference.S3-method
-#' @export
-setMethod(
-  f = "getYaml", 
-  signature = signature(
-    from = "{",
-    ctx = "YamlContext.ObjectReference.S3"
-  ), 
-  definition = function(
-    from,
-    ctx,
-    where,
-    ...
-  ) {
-    
-  ## Identification pattern //    
-  pattern <- ctx$pattern
-  
-  ## Store initial form of `from` //
-  from_0 <- from
-  
-  index <- which(sapply(from, function(from) {
-    any(grepl(pattern, from))
-  }))
-  if (!length(index)) {
-    out <- getYamlFromComments(from = from_0, ctx = ctx, where = where)
-  } else {
-    out <- ObjectReferenceYaml.S3(
-      original = unname(sapply(index, function(idx) from[[idx]])),
-      index = index,
-      src = from_0
-    )
-  }
-  return(out)
-  
-  }
-)
-

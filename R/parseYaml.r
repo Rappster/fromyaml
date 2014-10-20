@@ -58,10 +58,6 @@ setMethod(
     ...
   ) {
         
-  if (!length(yaml$original)) {
-    stop("Empty YAML markup field (`original`)")
-  }  
-    
   nms <- vector("character", length(yaml$original))
   parsed <- lapply(seq(along=yaml$original), function(ii) {
     parsed <- yaml::yaml.load(yaml$original[ii])[[1]]
