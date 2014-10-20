@@ -42,3 +42,51 @@ setMethod(
 bar(x_1 * 2)
 bar(x_1 * 2, caller_offset = 2)
 bar(x_1 * 2, caller_offset = 3)
+
+
+################################################################################
+
+#' @title
+#' Foo (generic)
+#'
+#' @description 
+#' Blabla.
+#'     
+#' @param x \strong{Signature argument}.
+#'    Object containing expression information. Typically, a function or an
+#'    "curly expression/call".
+setGeneric(
+  name = "foo",
+  signature = c(
+    "x"
+  ),
+  def = function(
+    x,
+    ...
+  ) {
+    standardGeneric("foo")       
+  }
+)
+
+#' @describeIn foo
+#' @inheritParams foo
+#' @param x \code{\link{{}}.
+#' @return \code{\link{expression}}. 
+#' @export
+setMethod(
+  f = "foo", 
+  signature = signature(
+    x = "{"
+  ), 
+  definition = function(
+    x,
+    ...
+  ) {
+    
+  print(x)
+  return(TRUE)
+  
+  }
+)
+
+foo(x = quote({1 + 2}))
