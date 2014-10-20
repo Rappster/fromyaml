@@ -26,6 +26,7 @@
 #' }
 #' @template author
 #' @template references
+#' @export
 captureExpression <- function(
   expr,
   caller_offset = 1,
