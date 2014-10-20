@@ -9,10 +9,9 @@
   ctx = NULL, where = parent.frame(), ...)
 }
 \arguments{
-\item{from}{\code{\link{missing}}.}
+\item{from}{\code{\link{function}}.}
 
-\item{ctx}{\strong{Signature argument}.
-Markup proecessing context.}
+\item{ctx}{\code{\link{YamlContext.ObjectReference.S3}}.}
 
 \item{where}{\code{\link{environment}}.
 Environment in which to assign the function in the \code{src} field of
@@ -55,6 +54,19 @@ yaml <- getYaml(
   ctx = YamlContext.ObjectReference.S3()
 )
 yaml$original
+yaml$original
+yaml$index
+yaml$src
+
+## Expression //
+yaml <- getYaml(
+  from = captureExpression({
+    "object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
+    ref_1 * 2
+  }),
+  ctx = YamlContext.ObjectReference.S3()
+)
+yaml
 yaml$original
 yaml$index
 yaml$src
