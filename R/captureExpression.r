@@ -15,7 +15,8 @@
 #'    \code{TRUE}: ensure that resulting expression is wrapped inside curly
 #'    brackets (\code{{}});
 #'    \code{FALSE}: expression returned exactly as captured.
-#' @return \code{{} if \code{brackets = TRUE}, else class of evaluated 
+#' @return \code{curly brackets call} (can't write out the actual code 
+#' in roxygen) if \code{brackets = TRUE}, else class of evaluated 
 #' expression.
 #' @template threedots
 #' @example inst/examples/captureExpression.r

@@ -33,7 +33,24 @@ yaml <- getYaml(
 ## Parse //
 yaml <- parseYaml(yaml = yaml)
 
-## Inspeact //
+## Inspect //
+yaml
+yaml$original
+yaml$parsed
+yaml$index
+yaml$src
+
+## From expression //
+yaml <- getYaml(
+  from = captureExpression({
+    "object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
+    ref_1
+  }),
+  ctx = YamlContext.ObjectReference.S3()
+)
+yaml <- parseYaml(yaml = yaml)
+
+## Inspect //
 yaml
 yaml$original
 yaml$parsed

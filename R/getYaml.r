@@ -54,7 +54,7 @@ setGeneric(
 #' }
 #' @template author
 #' @template references
-#' @aliases getYaml-{-YamlContext.ObjectReference.S3-method
+#' @aliases getYaml-ANY-YamlContext.ObjectReference.S3-method
 #' @export
 setMethod(
   f = "getYaml", 
@@ -138,13 +138,13 @@ setMethod(
 )
 
 #' @title
-#' Get YAML Markup ({-YamlContext.ObjectReference.S3)
+#' Get YAML Markup (function-YamlContext.ObjectReference.S3)
 #'
 #' @description 
 #' See generic: \code{\link[yamlr]{getYaml}}
-#'      
+#' 
 #' @inheritParams getYaml
-#' @param from \code{{}.
+#' @param from \code{{}}.
 #' @param ctx \code{\link{YamlContext.ObjectReference.S3}}.
 #' @return \code{\link{character}}. Identified YAML markup.
 #' @example inst/examples/getYaml.r
@@ -153,7 +153,6 @@ setMethod(
 #' }
 #' @template author
 #' @template references
-#' @aliases getYaml-{-YamlContext.ObjectReference.S3-method
 #' @export
 setMethod(
   f = "getYaml", 
