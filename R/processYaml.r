@@ -55,13 +55,13 @@ setGeneric(
 )
 
 #' @title
-#' Get YAML Markup (function-YamlContext.ObjectReference.S3)
+#' Get YAML Markup (ANY-YamlContext.ObjectReference.S3)
 #'
 #' @description 
 #' See generic: \code{\link[yamlr]{processYaml}}
 #'      
 #' @inheritParams processYaml
-#' @param from \code{\link{missing}}.
+#' @param from \code{\link{ANY}}.
 #' @return \code{\link{character}}. Identified YAML markup.
 #' @example inst/examples/processYaml.r
 #' @seealso \code{
@@ -73,12 +73,12 @@ setGeneric(
 #' }
 #' @template author
 #' @template references
-#' @aliases processYaml-function-YamlContext.ObjectReference.S3-method
+#' @aliases processYaml-ANY-YamlContext.ObjectReference.S3-method
 #' @export
 setMethod(
   f = "processYaml", 
   signature = signature(
-    from = "function",
+    from = "ANY",
     ctx = "YamlContext.ObjectReference.S3"
   ), 
   definition = function(
