@@ -3,12 +3,18 @@
 \alias{parseYaml}
 \title{Parse YAML Markup (generic)}
 \usage{
-parseYaml(yaml, ...)
+parseYaml(yaml, strict = FALSE, ...)
 }
 \arguments{
 \item{yaml}{\strong{Signature argument}.
 Object containing identified YAML markup as returned by
 \code{\link[yamlr]{getYaml}}.}
+
+\item{strict}{\code{\link{logical}}.
+\code{TRUE}: error if no YAML markup could be identified (which in turn
+results in field \code{original} in class
+\code{\link[yamlr]{ObjectReferencedYaml.S3}} being empty);
+\code{FALSE}: no error if no YAML markup could be identified.}
 
 \item{...}{Further arguments to be passed to subsequent functions/methods.}
 }
@@ -43,10 +49,14 @@ details about YAML
 \examples{
 \dontrun{
 
+##------------------------------------------------------------------------------
+## From function //
+##------------------------------------------------------------------------------
+
 ## Get //
 yaml <- getYaml(
   from = function() {
-  "object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
+    "object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
   },
   ctx = YamlContext.ObjectReference.S3()
 )
@@ -61,7 +71,27 @@ yaml$parsed
 yaml$index
 yaml$src
 
+## Condition handling //
+yaml <- getYaml(
+  from = function() {
+    "Invalid YAML markup"
+  },
+  ctx = YamlContext.ObjectReference.S3()
+)
+yaml$original
+
+try(getYaml(
+  from = function() {
+    "Invalid YAML markup"
+  },
+  ctx = YamlContext.ObjectReference.S3(),
+  strict = TRUE
+))
+
+##------------------------------------------------------------------------------
 ## From expression //
+##------------------------------------------------------------------------------
+
 yaml <- getYaml(
   from = captureExpression({
     "object-ref: {id: x_1, where: .GlobalEnv, as: ref_1}"
