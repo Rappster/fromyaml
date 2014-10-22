@@ -74,7 +74,9 @@ setMethod(
   in_body <- is.function(yaml$src)
   if (in_body) {
     body_scope <- length(body(src))
-    if (body_scope == 1 && body(src)[[1]] != "{") {
+#     body(src) != "{"
+#     if (body_scope == 1 && body(src)[[1]] != "{") {
+    if (body_scope == 1 && body(src) != "{") {      
       body(src) <- substitute({BODY}, list(BODY = body(src))) 
       yaml$index <- yaml$index + 1
       for (ii in seq(along = yaml$parsed)) {
