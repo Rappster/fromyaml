@@ -1,3 +1,19 @@
+# Version 0.4.8
+ - strict
+ - export captureExpression
+ - Merge branch 'master' into develop
+ - fixes #4
+ - Merge branch 'develop'
+ - intermediate commit (curly brackets problem)
+ - Merge branch 'master' into develop
+ - Merge branch 'release-0.4.7'
+ - build commit v0.4.7
+ - Revert "Revert "feature fromExpression""
+ - Revert "feature fromExpression"
+ - build commit v0.4.7
+
+----------
+
 # Version 0.4.7
  - Merge branch 'feat-fromExpr' into develop
  - feature fromExpression
