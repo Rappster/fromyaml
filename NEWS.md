@@ -1,3 +1,19 @@
+# CHANGES IN yamlr VERSION 0.4.9
+
+## NEW FEATURES
+
+## BUG FIXES
+
+- fixed: #5
+
+## MAJOR CHANGES
+
+## MINOR CHANGES
+
+## MISC
+
+-----
+
 # CHANGES IN yamlr VERSION 0.4.8
 
 ## NEW FEATURES

@@ -1,3 +1,12 @@
+# Version 0.4.9
+ - fixes #5
+ - Merge branch 'master' into develop
+ - Merge branch 'release-0.4.8'
+ - build commit v0.4.8
+ - Merge branch 'develop'
+
+----------
+
 # Version 0.4.8
  - strict
  - export captureExpression
