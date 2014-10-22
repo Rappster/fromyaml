@@ -27,6 +27,11 @@
 #'    class \code{\link[yamlr]{ObjectReferenceYaml.S3}}. Only relevant 
 #'    in case the YAML has been provided via comments instead of an 
 #'    inline string as this involves some additional transformation steps.
+#' @param strict \code{\link{logical}}.
+#'    \code{TRUE}: error if no YAML markup could be identified (which in turn
+#'    results in field \code{original} in class 
+#'    \code{\link[yamlr]{ObjectReferencedYaml.S3}} being empty);
+#'    \code{FALSE}: no error if no YAML markup could be identified.
 #' @template threedots
 #' @example inst/examples/processYaml.r
 #' @seealso \code{
@@ -48,6 +53,7 @@ setGeneric(
     from,
     ctx = NULL,
     where = parent.frame(),
+    strict = FALSE,
     ...
   ) {
     standardGeneric("processYaml")       
@@ -55,7 +61,7 @@ setGeneric(
 )
 
 #' @title
-#' Get YAML Markup (ANY-YamlContext.ObjectReference.S3)
+#' Process YAML Markup (ANY-YamlContext.ObjectReference.S3)
 #'
 #' @description 
 #' See generic: \code{\link[yamlr]{processYaml}}
@@ -85,21 +91,22 @@ setMethod(
     from,
     ctx,
     where,
+    strict,
     ...
   ) {
     
   ## Get //  
-  yaml <- getYaml(from = from, ctx = ctx, where = where)
-# print("DEBUG 1")  
+  yaml <- getYaml(from = from, ctx = ctx, where = where, strict = strict)
+  
   ## Parse //
   yaml <- parseYaml(yaml = yaml)
-# print("DEBUG 2")    
+
   ## Build //
   yaml <- buildExpressionFromYaml(yaml = yaml, where = where)
-# print("DEBUG 3")    
+
   ## Update //
   yaml <- updateYamlSource(yaml = yaml)
-# print("DEBUG 4")    
+
   return(yaml)
   
   }

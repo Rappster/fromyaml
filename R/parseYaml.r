@@ -9,6 +9,11 @@
 #' @param yaml \strong{Signature argument}.
 #'    Object containing identified YAML markup as returned by 
 #'    \code{\link[yamlr]{getYaml}}.
+#' @param strict \code{\link{logical}}.
+#'    \code{TRUE}: error if no YAML markup could be identified (which in turn
+#'    results in field \code{original} in class 
+#'    \code{\link[yamlr]{ObjectReferencedYaml.S3}} being empty);
+#'    \code{FALSE}: no error if no YAML markup could be identified.
 #' @template threedots
 #' @example inst/examples/parseYaml.r
 #' @seealso \code{
@@ -23,6 +28,7 @@ setGeneric(
   ),
   def = function(
     yaml,
+    strict = FALSE,
     ...
   ) {
     standardGeneric("parseYaml")       
@@ -55,11 +61,16 @@ setMethod(
   ), 
   definition = function(
     yaml,
+    strict,
     ...
   ) {
         
-  if (!length(yaml$original)) {
-    stop("Empty YAML markup field (`original`)")
+  if (strict && !length(yaml$original)) {
+    msg <- c(
+      "No YAML markup found in:",
+      paste(capture.output(yaml$src), collapse = "\n")
+    )
+    stop(paste(msg, collapse = "\n"))
   }  
     
   nms <- vector("character", length(yaml$original))
