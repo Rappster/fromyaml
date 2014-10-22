@@ -41,6 +41,28 @@ yaml$original
 yaml$index
 yaml$src
 
+## Condition handling //
+yaml <- getYaml(
+  from = function (){
+    "Invalid YAML markup"
+    ref_1 * 2
+  },
+  ctx = YamlContext.ObjectReference.S3()
+)
+yaml
+yaml$original
+yaml$index
+yaml$src
+
+try(getYaml(
+  from = function (){
+    "Invalid YAML markup"
+    ref_1 * 2
+  },
+  ctx = YamlContext.ObjectReference.S3(),
+  strict = TRUE
+))
+
 ##------------------------------------------------------------------------------  
 ## As comment //
 ##------------------------------------------------------------------------------

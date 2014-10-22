@@ -34,6 +34,29 @@ test_that("processYaml/from inline/multiple", {
       
 })
 
+test_that("processYaml/from inline/strict", {
+  
+  yaml <- processYaml(
+    from = function() {
+      "Invalid YAML markup"
+      ref_1 + ref_2 * 2
+    },
+    ctx = YamlContext.ObjectReference.S3()
+  )
+  expect_equal(yaml$original, character()) 
+  expect_is(yaml$src, "function") 
+  
+  expect_error(processYaml(
+    from = function() {
+      "Invalid YAML markup"
+      ref_1 + ref_2 * 2
+    },
+    ctx = YamlContext.ObjectReference.S3(),
+    strict = TRUE
+  ))
+      
+})
+
 ##------------------------------------------------------------------------------
 context("processYaml/inline/expression")
 ##------------------------------------------------------------------------------

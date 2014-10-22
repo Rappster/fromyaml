@@ -15,6 +15,11 @@
 #'    class \code{\link[yamlr]{ObjectReferenceYaml.S3}}. Only relevant 
 #'    in case the YAML has been provided via comments instead of an 
 #'    inline string as this involves some additional transformation steps.
+#' @param strict \code{\link{logical}}.
+#'    \code{TRUE}: error if no YAML markup could be identified (which in turn
+#'    results in field \code{original} in class 
+#'    \code{\link[yamlr]{ObjectReferencedYaml.S3}} being empty);
+#'    \code{FALSE}: no error if no YAML markup could be identified.
 #' @template threedots
 #' @example inst/examples/getYaml.r
 #' @seealso \code{
@@ -32,6 +37,7 @@ setGeneric(
     from,
     ctx = NULL,
     where = parent.frame(),
+    strict = FALSE,
     ...
   ) {
     standardGeneric("getYaml")       
@@ -66,6 +72,7 @@ setMethod(
     from,
     ctx,
     where,
+    strict,
     ...
   ) {
     
@@ -74,6 +81,7 @@ setMethod(
     from = from,
     ctx = ctx,
     where = where,
+    strict = strict,
     ...
   )
   
@@ -108,6 +116,7 @@ setMethod(
     from,
     ctx,
     where,
+    strict,
     ...
   ) {
     
@@ -132,6 +141,19 @@ setMethod(
       src = from_0
     )
   }
+  
+  if (is.null(out$src)) {
+    out$src <- from_0
+  }
+  
+  if (strict && !length(out$original)) {
+    msg <- c(
+      "No YAML markup found in:",
+      paste(capture.output(from_0), collapse = "\n")
+    )
+    stop(paste(msg, collapse = "\n"))
+  }
+  
   return(out)
   
   }
@@ -167,6 +189,7 @@ setMethod(
     from,
     ctx,
     where,
+    strict,
     ...
   ) {
     
@@ -188,6 +211,19 @@ setMethod(
       src = from_0
     )
   }
+  
+  if (is.null(out$src)) {
+    out$src <- from_0
+  }
+  
+  if (strict && !length(out$original)) {
+    msg <- c(
+      "No YAML markup found in:",
+      paste(capture.output(from_0), collapse = "\n")
+    )
+    stop(paste(msg, collapse = "\n"))
+  }
+  
   return(out)
   
   }

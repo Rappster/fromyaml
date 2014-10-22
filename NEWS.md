@@ -1,3 +1,20 @@
+# CHANGES IN yamlr VERSION 0.4.8
+
+## NEW FEATURES
+
+- added: argument `strict` in `getYaml()`, `parseYaml()` and `processYaml()`.
+  If `TRUE`, then an error is thrown in case no YAML markup could be identified
+
+## BUG FIXES
+
+## MAJOR CHANGES
+
+## MINOR CHANGES
+
+## MISC
+
+-----
+
 # CHANGES IN yamlr VERSION 0.4.7
 
 ## NEW FEATURES

@@ -6,7 +6,7 @@
 \title{Get YAML Markup (function-YamlContext.ObjectReference.S3)}
 \usage{
 \S4method{getYaml}{`function`,YamlContext.ObjectReference.S3}(from,
-  ctx = NULL, where = parent.frame(), ...)
+  ctx = NULL, where = parent.frame(), strict = FALSE, ...)
 }
 \arguments{
 \item{from}{\code{\link{function}}.}
@@ -18,6 +18,12 @@ Environment in which to assign the function in the \code{src} field of
 class \code{\link[yamlr]{ObjectReferenceYaml.S3}}. Only relevant
 in case the YAML has been provided via comments instead of an
 inline string as this involves some additional transformation steps.}
+
+\item{strict}{\code{\link{logical}}.
+\code{TRUE}: error if no YAML markup could be identified (which in turn
+results in field \code{original} in class
+\code{\link[yamlr]{ObjectReferencedYaml.S3}} being empty);
+\code{FALSE}: no error if no YAML markup could be identified.}
 
 \item{...}{Further arguments to be passed to subsequent functions/methods.}
 }
@@ -70,6 +76,28 @@ yaml
 yaml$original
 yaml$index
 yaml$src
+
+## Condition handling //
+yaml <- getYaml(
+  from = function (){
+    "Invalid YAML markup"
+    ref_1 * 2
+  },
+  ctx = YamlContext.ObjectReference.S3()
+)
+yaml
+yaml$original
+yaml$index
+yaml$src
+
+try(getYaml(
+  from = function (){
+    "Invalid YAML markup"
+    ref_1 * 2
+  },
+  ctx = YamlContext.ObjectReference.S3(),
+  strict = TRUE
+))
 
 ##------------------------------------------------------------------------------  
 ## As comment //

@@ -19,6 +19,31 @@ test_that("getYaml/from function", {
   
 })
 
+test_that("getYaml/from function/strict", {
+  
+  from <- function() {
+    "no valid YAML markup"
+  }
+  expect_is(res <- getYaml(
+    from = from,
+    ctx = YamlContext.ObjectReference.S3()
+    ), 
+    "ObjectReferenceYaml.S3"
+  )
+  expect_equal(res$original, character())
+  expect_equal(res$index, numeric())
+  expect_equal(res$src, from)
+  
+  expect_error(getYaml(
+    from = from,
+    ctx = YamlContext.ObjectReference.S3(),
+    strict = TRUE
+    )
+  )
+  
+})
+
+
 ##------------------------------------------------------------------------------
 context("getYaml/from expression")
 ##------------------------------------------------------------------------------

@@ -3,7 +3,7 @@
 \alias{processYaml}
 \title{Process YAML Markup (generic)}
 \usage{
-processYaml(from, ctx = NULL, where = parent.frame(), ...)
+processYaml(from, ctx = NULL, where = parent.frame(), strict = FALSE, ...)
 }
 \arguments{
 \item{from}{\strong{Signature argument}.
@@ -17,6 +17,12 @@ Environment in which to assign the function in the \code{src} field of
 class \code{\link[yamlr]{ObjectReferenceYaml.S3}}. Only relevant
 in case the YAML has been provided via comments instead of an
 inline string as this involves some additional transformation steps.}
+
+\item{strict}{\code{\link{logical}}.
+\code{TRUE}: error if no YAML markup could be identified (which in turn
+results in field \code{original} in class
+\code{\link[yamlr]{ObjectReferencedYaml.S3}} being empty);
+\code{FALSE}: no error if no YAML markup could be identified.}
 
 \item{...}{Further arguments to be passed to subsequent functions/methods.}
 }

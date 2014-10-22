@@ -56,7 +56,8 @@ test_that("parseYaml/messed up", {
     },
     ctx = YamlContext.ObjectReference.S3()
   )
-  expect_error(res <- parseYaml(yaml = yaml))
+#   expect_error(res <- parseYaml(yaml = yaml))
+  expect_is(res <- parseYaml(yaml = yaml), "ObjectReferenceYamlParsed.S3")
   
   ## Additional spaces //
   ## --> okay
@@ -69,6 +70,20 @@ test_that("parseYaml/messed up", {
   expect_is(res <- parseYaml(yaml = yaml), "ObjectReferenceYamlParsed.S3")
 #   res$parsed
 
+})
+
+test_that("parseYaml/strict", {
+  
+  yaml <- getYaml(
+    from = function() {
+      "Invalid YAML markup"
+    },
+    ctx = YamlContext.ObjectReference.S3()
+  )
+
+  expect_is(res <- parseYaml(yaml = yaml), "ObjectReferenceYamlParsed.S3")
+  expect_error(parseYaml(yaml = yaml, strict = TRUE))
+  
 })
 
 ##------------------------------------------------------------------------------
