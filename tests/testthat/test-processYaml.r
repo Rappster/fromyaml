@@ -12,7 +12,7 @@ test_that("processYaml/from inline/single", {
     ctx = YamlContext.ObjectReference.S3()
   )
   expect_is(yaml$src, "function") 
-  expect_equal(body(yaml$src)[[2]], yaml$expr$x_1$get_assign) 
+  expect_equal(body(yaml$src)[[2]], yaml$expr$object_1$get_assign) 
   expect_equal(body(yaml$src)[[3]], quote(ref_1 * 2)) 
       
 })
@@ -28,8 +28,8 @@ test_that("processYaml/from inline/multiple", {
     ctx = YamlContext.ObjectReference.S3()
   )
   expect_is(yaml$src, "function") 
-  expect_equal(body(yaml$src)[[2]], yaml$expr$x_1$get_assign) 
-  expect_equal(body(yaml$src)[[3]], yaml$expr$x_2$get_assign) 
+  expect_equal(body(yaml$src)[[2]], yaml$expr$object_1$get_assign) 
+  expect_equal(body(yaml$src)[[3]], yaml$expr$object_2$get_assign) 
   expect_equal(body(yaml$src)[[4]], quote(ref_1 + ref_2 * 2)) 
       
 })
@@ -71,7 +71,7 @@ test_that("processYaml/inline/expression", {
     ctx = YamlContext.ObjectReference.S3()
   )
   expect_is(yaml$src, "{") 
-  expect_equal(yaml$src[[2]], yaml$expr$x_1$get_assign) 
+  expect_equal(yaml$src[[2]], yaml$expr$object_1$get_assign) 
   expect_equal(yaml$src[[3]], quote(ref_1 * 2)) 
       
 })

@@ -74,7 +74,7 @@ setMethod(
   }  
     
   nms <- vector("character", length(yaml$original))
-  parsed <- lapply(seq(along=yaml$original), function(ii) {
+  parsed <- lapply(seq(along = yaml$original), function(ii) {
     parsed <- yaml::yaml.load(yaml$original[ii])[[1]]
     if (is.null(parsed$where)) {
       parsed$where <- as.name("where")
@@ -86,7 +86,9 @@ setMethod(
     } else {
       parsed$as <- as.name(parsed$as)
     }
-    nms[[ii]] <<- parsed$id
+#     nms[[ii]] <<- parsed$id
+    parsed$uid <- paste0("object_", ii)
+    nms[[ii]] <<- parsed$uid
     parsed$index <- yaml$index[ii]
     parsed$expr <- new.env(parent = emptyenv())
     parsed
