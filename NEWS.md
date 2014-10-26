@@ -1,3 +1,19 @@
+# CHANGES IN yamlr VERSION 0.4.10
+
+## NEW FEATURES
+
+## BUG FIXES
+
+- fixed: #6 (references with identical IDs)
+
+## MAJOR CHANGES
+
+## MINOR CHANGES
+
+## MISC
+
+-----
+
 # CHANGES IN yamlr VERSION 0.4.9
 
 ## NEW FEATURES
