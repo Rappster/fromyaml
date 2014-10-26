@@ -85,9 +85,9 @@ setMethod(
     }
   }
     
-  index <- yaml$index
-  expr <- yaml$expr
-  parsed <- yaml$parsed
+  index   <- yaml$index
+  expr    <- yaml$expr
+  parsed  <- yaml$parsed
   
   for (ii in names(parsed)) {
     if (in_body) {

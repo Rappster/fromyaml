@@ -16,7 +16,7 @@ test_that("updateYamlSource/basics", {
   expect_is(res <- updateYamlSource(yaml = yaml), 
             "ObjectReferenceYamlProcessed.S3")
   expect_is(res$src, "function") 
-  expect_equal(body(res$src)[[2]], res$expr$x_1$get_assign) 
+  expect_equal(body(res$src)[[2]], res$expr$object_1$get_assign) 
       
 })
 
@@ -31,7 +31,7 @@ test_that("updateYamlSource/just ID", {
   expect_is(res <- updateYamlSource(yaml = yaml), 
             "ObjectReferenceYamlProcessed.S3")
   expect_is(res$src, "function") 
-  expect_equal(body(res$src)[[2]], res$expr$x_1$get_assign) 
+  expect_equal(body(res$src)[[2]], res$expr$object_1$get_assign) 
       
 })
 
@@ -48,4 +48,3 @@ test_that("updateYamlSource/no yaml, no brackets", {
   expect_is(res$src, "function") 
       
 })
-

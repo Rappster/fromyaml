@@ -115,7 +115,7 @@ setMethod(
     )
     
     ## Assign to shorthand field //
-    assign(el$id, env, expr_env)
+    assign(el$uid, env, expr_env)
     env
   })
 
